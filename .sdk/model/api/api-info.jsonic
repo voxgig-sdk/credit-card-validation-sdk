@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://arielservices.ct.ws/stripe.php?cc="
+      }
+      description: "This API verifies the validity and authenticity of credit card details provided by users. It checks the card number format, expiration date, and other related information to ensure reliability and security in transactions."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://arielservices.ct.ws"
+        }
+      ]
+      title: "Credit Card Validation API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

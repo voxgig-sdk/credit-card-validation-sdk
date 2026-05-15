@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "validation": {
+      "VALIDATION00": {
+        "card_number": "s3c",
+        "card_type": "s3d",
+        "expiration_valid": true,
+        "luhn_check": false,
+        "message": "s40",
+        "valid": false
+      },
+      "VALIDATION01": {
+        "card_number": "s78",
+        "card_type": "s79",
+        "expiration_valid": true,
+        "luhn_check": false,
+        "message": "s7c",
+        "valid": false
+      },
+      "VALIDATION02": {
+        "card_number": "sb4",
+        "card_type": "sb5",
+        "expiration_valid": true,
+        "luhn_check": false,
+        "message": "sb8",
+        "valid": false
+      }
+    }
+  },
+  "new": {
+    "validation": {
+      "validation_ref01": {
+        "card_number": "sf0",
+        "card_type": "sf1",
+        "expiration_valid": true,
+        "luhn_check": false,
+        "message": "sf4",
+        "valid": false
+      }
+    }
+  }
+}

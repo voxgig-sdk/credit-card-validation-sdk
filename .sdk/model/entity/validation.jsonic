@@ -1,0 +1,97 @@
+# Entity: validation
+
+main: kit: entity: validation: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "card_number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expiration_valid"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "luhn_check"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "message"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "valid"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "validation"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "4532015112830366"
+                kind: "query"
+                name: "cc"
+                orig: "cc"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "123"
+                kind: "query"
+                name: "cvv"
+                orig: "cvv"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "12/25"
+                kind: "query"
+                name: "exp"
+                orig: "exp"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/stripe.php"
+          parts: [
+            "stripe.php"
+          ]
+          select: {
+            exist: [
+              "cc"
+              "cvv"
+              "exp"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

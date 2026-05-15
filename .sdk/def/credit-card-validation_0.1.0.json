@@ -1,0 +1,252 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Credit Card Validation API",
+    "description": "This API verifies the validity and authenticity of credit card details provided by users. It checks the card number format, expiration date, and other related information to ensure reliability and security in transactions.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://arielservices.ct.ws/stripe.php?cc="
+    }
+  },
+  "servers": [
+    {
+      "url": "https://arielservices.ct.ws",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/stripe.php": {
+      "get": {
+        "summary": "Validate credit card details",
+        "description": "Verifies the validity and authenticity of credit card information including card number format, expiration date, and other related details to ensure reliability and security in transactions.",
+        "operationId": "validateCreditCard",
+        "parameters": [
+          {
+            "name": "cc",
+            "in": "query",
+            "description": "Credit card number to validate",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{13,19}$",
+              "example": "4532015112830366"
+            }
+          },
+          {
+            "name": "exp",
+            "in": "query",
+            "description": "Expiration date in MM/YY or MM/YYYY format",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^(0[1-9]|1[0-2])\\/([0-9]{2}|[0-9]{4})$",
+              "example": "12/25"
+            }
+          },
+          {
+            "name": "cvv",
+            "in": "query",
+            "description": "Card verification value (CVV/CVC)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{3,4}$",
+              "example": "123"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful validation response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "valid": {
+                      "type": "boolean",
+                      "description": "Indicates whether the credit card is valid"
+                    },
+                    "cardType": {
+                      "type": "string",
+                      "description": "Type of credit card (Visa, MasterCard, American Express, etc.)",
+                      "example": "Visa"
+                    },
+                    "cardNumber": {
+                      "type": "string",
+                      "description": "Masked credit card number",
+                      "example": "****-****-****-0366"
+                    },
+                    "expirationValid": {
+                      "type": "boolean",
+                      "description": "Indicates whether the expiration date is valid and not expired"
+                    },
+                    "luhnCheck": {
+                      "type": "boolean",
+                      "description": "Result of Luhn algorithm validation"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Additional information or error message"
+                    }
+                  }
+                },
+                "examples": {
+                  "validCard": {
+                    "summary": "Valid credit card response",
+                    "value": {
+                      "valid": true,
+                      "cardType": "Visa",
+                      "cardNumber": "****-****-****-0366",
+                      "expirationValid": true,
+                      "luhnCheck": true,
+                      "message": "Credit card is valid"
+                    }
+                  },
+                  "invalidCard": {
+                    "summary": "Invalid credit card response",
+                    "value": {
+                      "valid": false,
+                      "cardType": "Unknown",
+                      "cardNumber": "****-****-****-1234",
+                      "expirationValid": false,
+                      "luhnCheck": false,
+                      "message": "Credit card validation failed"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid input parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message describing the issue"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Detailed error information"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Bad Request",
+                  "message": "Credit card number is required"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Invalid credit card format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Detailed validation error"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Validation Error",
+                  "message": "Invalid credit card number format"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Detailed error information"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Internal Server Error",
+                  "message": "An unexpected error occurred while processing the request"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Validation"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Validation",
+      "description": "Credit card validation operations"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ValidationResponse": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean",
+            "description": "Indicates whether the credit card is valid"
+          },
+          "cardType": {
+            "type": "string",
+            "description": "Type of credit card"
+          },
+          "cardNumber": {
+            "type": "string",
+            "description": "Masked credit card number"
+          },
+          "expirationValid": {
+            "type": "boolean",
+            "description": "Indicates whether the expiration date is valid"
+          },
+          "luhnCheck": {
+            "type": "boolean",
+            "description": "Result of Luhn algorithm validation"
+          },
+          "message": {
+            "type": "string",
+            "description": "Additional information or error message"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error type"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error message"
+          }
+        }
+      }
+    }
+  }
+}
