@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/credit-card-validation-sdk/core"
+	"github.com/voxgig-sdk/credit-card-validation-sdk/go/core"
 )
 
 type BaseFeature struct {

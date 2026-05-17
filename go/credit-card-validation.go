@@ -1,10 +1,10 @@
 package voxgigcreditcardvalidationsdk
 
 import (
-	"github.com/voxgig-sdk/credit-card-validation-sdk/core"
-	"github.com/voxgig-sdk/credit-card-validation-sdk/entity"
-	"github.com/voxgig-sdk/credit-card-validation-sdk/feature"
-	_ "github.com/voxgig-sdk/credit-card-validation-sdk/utility"
+	"github.com/voxgig-sdk/credit-card-validation-sdk/go/core"
+	"github.com/voxgig-sdk/credit-card-validation-sdk/go/entity"
+	"github.com/voxgig-sdk/credit-card-validation-sdk/go/feature"
+	_ "github.com/voxgig-sdk/credit-card-validation-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

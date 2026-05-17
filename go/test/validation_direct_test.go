@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/credit-card-validation-sdk"
-	"github.com/voxgig-sdk/credit-card-validation-sdk/core"
+	sdk "github.com/voxgig-sdk/credit-card-validation-sdk/go"
+	"github.com/voxgig-sdk/credit-card-validation-sdk/go/core"
 )
 
 func TestValidationDirect(t *testing.T) {

@@ -7,7 +7,8 @@
         "expiration_valid": true,
         "luhn_check": false,
         "message": "s40",
-        "valid": false
+        "valid": false,
+        "id": "VALIDATION00"
       },
       "VALIDATION01": {
         "card_number": "s78",
@@ -15,7 +16,8 @@
         "expiration_valid": true,
         "luhn_check": false,
         "message": "s7c",
-        "valid": false
+        "valid": false,
+        "id": "VALIDATION01"
       },
       "VALIDATION02": {
         "card_number": "sb4",
@@ -23,7 +25,8 @@
         "expiration_valid": true,
         "luhn_check": false,
         "message": "sb8",
-        "valid": false
+        "valid": false,
+        "id": "VALIDATION02"
       }
     }
   },
