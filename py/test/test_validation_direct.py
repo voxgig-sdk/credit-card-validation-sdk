@@ -64,14 +64,12 @@ def _validation_direct_setup(mockres):
     env = runner.env_override({
         "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": {},
         "CREDITCARDVALIDATION_TEST_LIVE": "FALSE",
-        "CREDITCARDVALIDATION_APIKEY": "NONE",
     })
 
     live = env.get("CREDITCARDVALIDATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("CREDITCARDVALIDATION_APIKEY"),
         }
         client = CreditCardValidationSDK(merged_opts)
         return {

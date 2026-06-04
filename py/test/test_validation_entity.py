@@ -91,7 +91,6 @@ def _validation_basic_setup(extra):
         "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": idmap,
         "CREDITCARDVALIDATION_TEST_LIVE": "FALSE",
         "CREDITCARDVALIDATION_TEST_EXPLAIN": "FALSE",
-        "CREDITCARDVALIDATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _validation_basic_setup(extra):
     if env.get("CREDITCARDVALIDATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CREDITCARDVALIDATION_APIKEY"),
             },
             extra or {},
         ])

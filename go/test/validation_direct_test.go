@@ -105,14 +105,12 @@ func validationDirectSetup(mockres any) *validationDirectSetupResult {
 	env := envOverride(map[string]any{
 		"CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": map[string]any{},
 		"CREDITCARDVALIDATION_TEST_LIVE":    "FALSE",
-		"CREDITCARDVALIDATION_APIKEY":       "NONE",
 	})
 
 	live := env["CREDITCARDVALIDATION_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["CREDITCARDVALIDATION_APIKEY"],
 		}
 		client := sdk.NewCreditCardValidationSDK(mergedOpts)
 

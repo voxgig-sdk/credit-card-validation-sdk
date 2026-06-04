@@ -85,7 +85,6 @@ function validation_basic_setup($extra)
         "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID" => $idmap,
         "CREDITCARDVALIDATION_TEST_LIVE" => "FALSE",
         "CREDITCARDVALIDATION_TEST_EXPLAIN" => "FALSE",
-        "CREDITCARDVALIDATION_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function validation_basic_setup($extra)
     if ($env["CREDITCARDVALIDATION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["CREDITCARDVALIDATION_APIKEY"],
             ],
             $extra ?? [],
         ]);

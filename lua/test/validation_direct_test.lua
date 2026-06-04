@@ -68,14 +68,12 @@ function validation_direct_setup(mockres)
   local env = runner.env_override({
     ["CREDITCARDVALIDATION_TEST_VALIDATION_ENTID"] = {},
     ["CREDITCARDVALIDATION_TEST_LIVE"] = "FALSE",
-    ["CREDITCARDVALIDATION_APIKEY"] = "NONE",
   })
 
   local live = env["CREDITCARDVALIDATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["CREDITCARDVALIDATION_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

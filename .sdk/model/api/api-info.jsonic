@@ -16,8 +16,27 @@ main: {
       ]
       title: "Credit Card Validation API"
       version: "1.0.0"
+      tagline: "Check basic credit card details (number format and expiry) against client-side style validation rules"
+      homepage: "https://arielservices.ct.ws"
+      license_short: "No licence published."
+      license_md: `- No licence or terms of use are published for this API.
+- The service is listed on freepublicapis.com without attribution or usage requirements.
+- Treat results as format and sanity checks only, not as authoritative authorisation from a card network or issuer.`
+      about_md: `The Credit Card Validation API is a small public endpoint hosted at [arielservices.ct.ws](https://arielservices.ct.ws) and catalogued on [freepublicapis.com](https://freepublicapis.com/credit-card-validation-api). It exposes a single validation operation intended to confirm that submitted card details are well-formed.
+
+What the API checks:
+
+- The card number format (length and digit pattern, typically a Luhn-style check).
+- The expiration date.
+- Other surface-level fields supplied with the card details.
+
+This is a structural validation service. It does not contact card networks or issuing banks, so a successful response means the supplied details look syntactically valid, not that the card is active, in good standing, or authorised for a payment.
+
+The public catalogue page reports low reliability for this endpoint (around a third of requests succeeding at the time of listing). No authentication, rate limit, or CORS policy is documented; expect the service to behave as a best-effort, unmetered public endpoint.`
+      entity_desc: {
+        validation: "Credit card format and expiry checks performed by the single endpoint exposed at the API server root."
+      }
+      auth: false
     }
   }
-}
-
 }

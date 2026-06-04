@@ -15,9 +15,6 @@ module CreditCardValidationConfig
       },
       "options" => {
         "base" => "https://arielservices.ct.ws",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
