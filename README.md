@@ -1,22 +1,8 @@
 # CreditCardValidation SDK
 
-Check basic credit card details (number format and expiry) against client-side style validation rules
+Credit Card Validation API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Credit Card Validation API
-
-The Credit Card Validation API is a small public endpoint hosted at [arielservices.ct.ws](https://arielservices.ct.ws) and catalogued on [freepublicapis.com](https://freepublicapis.com/credit-card-validation-api). It exposes a single validation operation intended to confirm that submitted card details are well-formed.
-
-What the API checks:
-
-- The card number format (length and digit pattern, typically a Luhn-style check).
-- The expiration date.
-- Other surface-level fields supplied with the card details.
-
-This is a structural validation service. It does not contact card networks or issuing banks, so a successful response means the supplied details look syntactically valid, not that the card is active, in good standing, or authorised for a payment.
-
-The public catalogue page reports low reliability for this endpoint (around a third of requests succeeding at the time of listing). No authentication, rate limit, or CORS policy is documented; expect the service to behave as a best-effort, unmetered public endpoint.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install credit-card-validation-sdk
 luarocks install credit-card-validation-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CreditCardValidationSDK } from 'credit-card-validation'
 
-const client = new CreditCardValidationSDK({})
+const client = new CreditCardValidationSDK({
+  apikey: process.env.CREDIT-CARD-VALIDATION_APIKEY,
+})
 
+// Load validation data
+const validation = await client.Validation().load({})
+console.log(validation.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Validation** | Credit card format and expiry checks performed by the single endpoint exposed at the API server root. | `/stripe.php` |
+| **Validation** |  | `/stripe.php` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from creditcardvalidation_sdk import CreditCardValidationSDK
 
-client = CreditCardValidationSDK({})
+client = CreditCardValidationSDK({
+    "apikey": os.environ.get("CREDIT-CARD-VALIDATION_APIKEY"),
+})
 
 
 # Load a specific validation
-validation, err = client.Validation(None).load(
-    {"id": "example_id"}, None
-)
+validation, err = client.Validation().load({"id": "example_id"})
+print(validation)
 ```
 
 ### PHP
@@ -127,13 +119,14 @@ validation, err = client.Validation(None).load(
 <?php
 require_once 'creditcardvalidation_sdk.php';
 
-$client = new CreditCardValidationSDK([]);
+$client = new CreditCardValidationSDK([
+    "apikey" => getenv("CREDIT-CARD-VALIDATION_APIKEY"),
+]);
 
 
 // Load a specific validation
-[$validation, $err] = $client->Validation(null)->load(
-    ["id" => "example_id"], null
-);
+[$validation, $err] = $client->Validation()->load(["id" => "example_id"]);
+print_r($validation);
 ```
 
 ### Golang
@@ -141,8 +134,13 @@ $client = new CreditCardValidationSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/credit-card-validation-sdk/go"
 
-client := sdk.NewCreditCardValidationSDK(map[string]any{})
+client := sdk.NewCreditCardValidationSDK(map[string]any{
+    "apikey": os.Getenv("CREDIT-CARD-VALIDATION_APIKEY"),
+})
 
+// Load validation data
+validation, err := client.Validation(nil).Load(map[string]any{}, nil)
+fmt.Println(validation)
 ```
 
 ### Ruby
@@ -150,13 +148,14 @@ client := sdk.NewCreditCardValidationSDK(map[string]any{})
 ```ruby
 require_relative "CreditCardValidation_sdk"
 
-client = CreditCardValidationSDK.new({})
+client = CreditCardValidationSDK.new({
+  "apikey" => ENV["CREDIT-CARD-VALIDATION_APIKEY"],
+})
 
 
 # Load a specific validation
-validation, err = client.Validation(nil).load(
-  { "id" => "example_id" }, nil
-)
+validation, err = client.Validation().load({ "id" => "example_id" })
+puts validation
 ```
 
 ### Lua
@@ -164,13 +163,14 @@ validation, err = client.Validation(nil).load(
 ```lua
 local sdk = require("credit-card-validation_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("CREDIT-CARD-VALIDATION_APIKEY"),
+})
 
 
 -- Load a specific validation
-local validation, err = client:Validation(nil):load(
-  { id = "example_id" }, nil
-)
+local validation, err = client:Validation():load({ id = "example_id" })
+print(validation)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +189,21 @@ const result = await client.Validation().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CreditCardValidationSDK.test(None, None)
-result, err = client.Validation(None).load(
-    {"id": "test01"}, None
-)
+client = CreditCardValidationSDK.test()
+result, err = client.Validation().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CreditCardValidationSDK::test(null, null);
-[$result, $err] = $client->Validation(null)->load(
-    ["id" => "test01"], null
-);
+$client = CreditCardValidationSDK::test();
+[$result, $err] = $client->Validation()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Validation(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +212,15 @@ result, err := client.Validation(nil).Load(
 ### Ruby
 
 ```ruby
-client = CreditCardValidationSDK.test(nil, nil)
-result, err = client.Validation(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CreditCardValidationSDK.test
+result, err = client.Validation().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Validation(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Validation():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,14 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Credit Card Validation API
-
-- Upstream: [https://arielservices.ct.ws](https://arielservices.ct.ws)
-
-- No licence or terms of use are published for this API.
-- The service is listed on freepublicapis.com without attribution or usage requirements.
-- Treat results as format and sanity checks only, not as authoritative authorisation from a card network or issuer.
 
 ---
 

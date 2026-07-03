@@ -78,12 +78,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'CREDITCARDVALIDATION_TEST_VALIDATION_ENTID': {},
     'CREDITCARDVALIDATION_TEST_LIVE': 'FALSE',
+    'CREDITCARDVALIDATION_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.CREDITCARDVALIDATION_TEST_LIVE
 
   if (live) {
     const client = new CreditCardValidationSDK({
+      apikey: env.CREDITCARDVALIDATION_APIKEY,
     })
 
     let idmap: any = env['CREDITCARDVALIDATION_TEST_VALIDATION_ENTID']

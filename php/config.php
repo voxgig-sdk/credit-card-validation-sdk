@@ -20,6 +20,9 @@ class CreditCardValidationConfig
             ],
             "options" => [
                 "base" => "https://arielservices.ct.ws",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -31,82 +34,84 @@ class CreditCardValidationConfig
         'validation' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'card_number',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'card_type',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
             [
+              'active' => true,
               'name' => 'expiration_valid',
               'req' => false,
               'type' => '`$BOOLEAN`',
-              'active' => true,
               'index$' => 2,
             ],
             [
+              'active' => true,
               'name' => 'luhn_check',
               'req' => false,
               'type' => '`$BOOLEAN`',
-              'active' => true,
               'index$' => 3,
             ],
             [
+              'active' => true,
               'name' => 'message',
               'req' => false,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 4,
             ],
             [
+              'active' => true,
               'name' => 'valid',
               'req' => false,
               'type' => '`$BOOLEAN`',
-              'active' => true,
               'index$' => 5,
             ],
           ],
           'name' => 'validation',
           'op' => [
             'load' => [
+              'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'query' => [
                       [
+                        'active' => true,
                         'example' => '4532015112830366',
                         'kind' => 'query',
                         'name' => 'cc',
                         'orig' => 'cc',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'example' => '123',
                         'kind' => 'query',
                         'name' => 'cvv',
                         'orig' => 'cvv',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'example' => '12/25',
                         'kind' => 'query',
                         'name' => 'exp',
                         'orig' => 'exp',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -126,11 +131,9 @@ class CreditCardValidationConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'load',
             ],
           ],

@@ -117,6 +117,7 @@ func validationBasicSetup(extra map[string]any) *entityTestSetup {
 		"CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": idmap,
 		"CREDITCARDVALIDATION_TEST_LIVE":      "FALSE",
 		"CREDITCARDVALIDATION_TEST_EXPLAIN":   "FALSE",
+		"CREDITCARDVALIDATION_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["CREDITCARDVALIDATION_TEST_VALIDATION_ENTID"])
@@ -127,6 +128,7 @@ func validationBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["CREDITCARDVALIDATION_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["CREDITCARDVALIDATION_APIKEY"],
 			},
 			extra,
 		})
