@@ -10,7 +10,7 @@ The PHP SDK for the CreditCardValidation API — an entity-oriented client using
 
 ## Install
 ```bash
-composer require voxgig/credit-card-validation-sdk
+composer require voxgig-sdk/credit-card-validation
 ```
 
 

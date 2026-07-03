@@ -10,7 +10,7 @@ The TypeScript SDK for the CreditCardValidation API — a type-safe, entity-orie
 
 ## Install
 ```bash
-npm install credit-card-validation
+npm install @voxgig-sdk/credit-card-validation
 ```
 ## Tutorial: your first API call
 

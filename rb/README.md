@@ -10,13 +10,13 @@ The Ruby SDK for the CreditCardValidation API — an entity-oriented client usin
 
 ## Install
 ```bash
-gem install credit-card-validation-sdk
+gem install voxgig-sdk-credit-card-validation
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "credit-card-validation-sdk"
+gem "voxgig-sdk-credit-card-validation"
 ```
 
 Then run:

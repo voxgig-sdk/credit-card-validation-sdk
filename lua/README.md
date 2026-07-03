@@ -10,7 +10,7 @@ The Lua SDK for the CreditCardValidation API — an entity-oriented client using
 
 ## Install
 ```bash
-luarocks install credit-card-validation-sdk
+luarocks install voxgig-sdk-credit-card-validation
 ```
 
 If the module is not yet published, add the source directory to

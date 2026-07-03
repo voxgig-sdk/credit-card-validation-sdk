@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/credit-card-validation",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Credit Card Validation public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "credit-card-validation"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/credit-card-validation-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/credit-card-validation-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/credit-card-validation-sdk/issues"
+  },
   "main": "dist/CreditCardValidationSDK.js",
   "type": "commonjs",
   "types": "dist/CreditCardValidationSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "CreditCardValidation",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

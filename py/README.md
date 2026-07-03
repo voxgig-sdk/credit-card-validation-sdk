@@ -10,7 +10,7 @@ The Python SDK for the CreditCardValidation API — an entity-oriented client fo
 
 ## Install
 ```bash
-pip install credit-card-validation-sdk
+pip install voxgig-sdk-credit-card-validation
 ```
 
 Or install from source:
