@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'CREDIT_CARD_VALIDATION_TEST_VALIDATION_ENTID': idmap,
     'CREDIT_CARD_VALIDATION_TEST_LIVE': 'FALSE',
     'CREDIT_CARD_VALIDATION_TEST_EXPLAIN': 'FALSE',
-    'CREDIT_CARD_VALIDATION_APIKEY': 'NONE',
   })
 
   idmap = env['CREDIT_CARD_VALIDATION_TEST_VALIDATION_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CreditCardValidationSDK(merge([
       {
-        apikey: env.CREDIT_CARD_VALIDATION_APIKEY,
       },
       extra
     ]))

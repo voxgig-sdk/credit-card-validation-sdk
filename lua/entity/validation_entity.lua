@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ValidationLoadMatch
+---@param ctrl? table
+---@return Validation
+---@return string? err
 function ValidationEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -10,26 +10,24 @@ This is an unofficial SDK for the Credit Card Validation public API, generated b
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/credit-card-validation` | `npm install @voxgig-sdk/credit-card-validation` |
-| Python | `voxgig-sdk-credit-card-validation` | `pip install voxgig-sdk-credit-card-validation` |
-| PHP | `voxgig-sdk/credit-card-validation` | `composer require voxgig-sdk/credit-card-validation` |
-| Golang | `github.com/voxgig-sdk/credit-card-validation-sdk/go` | `go get github.com/voxgig-sdk/credit-card-validation-sdk/go` |
-| Ruby | `voxgig-sdk-credit-card-validation` | `gem install voxgig-sdk-credit-card-validation` |
-| Lua | `voxgig-sdk-credit-card-validation` | `luarocks install voxgig-sdk-credit-card-validation` |
+| TypeScript | `@voxgig-sdk/credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| Python | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| PHP | `voxgig-sdk/credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/credit-card-validation-sdk/go` | `go get github.com/voxgig-sdk/credit-card-validation-sdk/go@latest` |
+| Ruby | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| Lua | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { CreditCardValidationSDK } from 'credit-card-validation'
+import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
 
-const client = new CreditCardValidationSDK({
-  apikey: process.env.CREDIT-CARD-VALIDATION_APIKEY,
-})
+const client = new CreditCardValidationSDK()
 
 // Load validation data
-const validation = await client.Validation().load({})
+const validation = await client.validation.load({})
 console.log(validation.data)
 ```
 
@@ -71,7 +69,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Validation** |  | `/stripe.php` |
+| **Validation** | The Validation entity (load). | `/stripe.php` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -81,16 +79,13 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from creditcardvalidation_sdk import CreditCardValidationSDK
 
-client = CreditCardValidationSDK({
-    "apikey": os.environ.get("CREDIT-CARD-VALIDATION_APIKEY"),
-})
+client = CreditCardValidationSDK()
 
 
 # Load a specific validation
-validation, err = client.Validation().load({"id": "example_id"})
+validation = client.validation.load({"id": "example_id"})
 print(validation)
 ```
 
@@ -100,13 +95,11 @@ print(validation)
 <?php
 require_once 'creditcardvalidation_sdk.php';
 
-$client = new CreditCardValidationSDK([
-    "apikey" => getenv("CREDIT-CARD-VALIDATION_APIKEY"),
-]);
+$client = new CreditCardValidationSDK();
 
 
 // Load a specific validation
-[$validation, $err] = $client->Validation()->load(["id" => "example_id"]);
+$validation = $client->validation()->load(["id" => "example_id"]);
 print_r($validation);
 ```
 
@@ -115,9 +108,7 @@ print_r($validation);
 ```go
 import sdk "github.com/voxgig-sdk/credit-card-validation-sdk/go"
 
-client := sdk.NewCreditCardValidationSDK(map[string]any{
-    "apikey": os.Getenv("CREDIT-CARD-VALIDATION_APIKEY"),
-})
+client := sdk.New()
 
 // Load validation data
 validation, err := client.Validation(nil).Load(map[string]any{}, nil)
@@ -129,13 +120,11 @@ fmt.Println(validation)
 ```ruby
 require_relative "CreditCardValidation_sdk"
 
-client = CreditCardValidationSDK.new({
-  "apikey" => ENV["CREDIT-CARD-VALIDATION_APIKEY"],
-})
+client = CreditCardValidationSDK.new
 
 
 # Load a specific validation
-validation, err = client.Validation().load({ "id" => "example_id" })
+validation = client.validation.load({ "id" => "example_id" })
 puts validation
 ```
 
@@ -144,13 +133,11 @@ puts validation
 ```lua
 local sdk = require("credit-card-validation_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("CREDIT-CARD-VALIDATION_APIKEY"),
-})
+local client = sdk.new()
 
 
 -- Load a specific validation
-local validation, err = client:Validation():load({ id = "example_id" })
+local validation, err = client:validation():load({ id = "example_id" })
 print(validation)
 ```
 
@@ -163,7 +150,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CreditCardValidationSDK.test()
-const result = await client.Validation().load({ id: 'test01' })
+const result = await client.validation.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -171,14 +158,14 @@ const result = await client.Validation().load({ id: 'test01' })
 
 ```python
 client = CreditCardValidationSDK.test()
-result, err = client.Validation().load({"id": "test01"})
+result = client.validation.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = CreditCardValidationSDK::test();
-[$result, $err] = $client->Validation()->load(["id" => "test01"]);
+$result = $client->validation()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -194,14 +181,14 @@ result, err := client.Validation(nil).Load(
 
 ```ruby
 client = CreditCardValidationSDK.test
-result, err = client.Validation().load({ "id" => "test01" })
+result = client.validation.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Validation():load({ id = "test01" })
+local result, err = client:validation():load({ id = "test01" })
 ```
 
 ## How it works
@@ -254,7 +241,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -263,7 +250,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -281,7 +268,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

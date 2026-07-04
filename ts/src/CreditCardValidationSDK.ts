@@ -2,6 +2,8 @@
 
 import { ValidationEntity } from './entity/ValidationEntity'
 
+export type * from './CreditCardValidationTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class CreditCardValidationSDK {
 
 
 
+  _validation?: ValidationEntity
+
+  // Idiomatic facade: `client.validation.list()` / `client.validation.load({ id })`.
+  get validation(): ValidationEntity {
+    return (this._validation ??= new ValidationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.validation` instead. */
   Validation(data?: any) {
     const self = this
     return new ValidationEntity(self,data)

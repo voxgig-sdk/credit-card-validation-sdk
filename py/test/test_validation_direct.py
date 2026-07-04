@@ -25,7 +25,7 @@ class TestValidationDirect:
         if setup["live"]:
             query["cc"] = "4532015112830366"
 
-        result, err = client.direct({
+        result = client.direct({
             "path": "stripe.php",
             "method": "GET",
             "params": params,
@@ -35,8 +35,8 @@ class TestValidationDirect:
             # Live mode is lenient: synthetic IDs frequently 4xx. Skip
             # rather than fail when the load endpoint isn't reachable
             # with the IDs we can construct from setup.idmap.
-            if err is not None:
-                pytest.skip(f"load call failed (likely synthetic IDs against live API): {err}")
+            if result.get("err") is not None:
+                pytest.skip(f"load call failed (likely synthetic IDs against live API): {result.get('err')}")
                 return
             if not result.get("ok"):
                 pytest.skip("load call not ok (likely synthetic IDs against live API)")
@@ -46,7 +46,6 @@ class TestValidationDirect:
                 pytest.skip(f"expected 2xx status, got {status}")
                 return
         else:
-            assert err is None
             assert result["ok"] is True
             assert helpers.to_int(result["status"]) == 200
             assert result["data"] is not None
@@ -64,14 +63,12 @@ def _validation_direct_setup(mockres):
     env = runner.env_override({
         "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": {},
         "CREDITCARDVALIDATION_TEST_LIVE": "FALSE",
-        "CREDITCARDVALIDATION_APIKEY": "NONE",
     })
 
     live = env.get("CREDITCARDVALIDATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("CREDITCARDVALIDATION_APIKEY"),
         }
         client = CreditCardValidationSDK(merged_opts)
         return {

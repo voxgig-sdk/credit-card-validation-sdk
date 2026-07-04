@@ -26,7 +26,7 @@ class ValidationDirectTest extends TestCase
             $query["cc"] = "4532015112830366";
         }
 
-        [$result, $err] = $client->direct([
+        $result = $client->direct([
             "path" => "stripe.php",
             "method" => "GET",
             "params" => $params,
@@ -36,8 +36,8 @@ class ValidationDirectTest extends TestCase
             // Live mode is lenient: synthetic IDs frequently 4xx. Skip
             // rather than fail when the load endpoint isn't reachable
             // with the IDs we can construct from setup.idmap.
-            if ($err !== null) {
-                $this->markTestSkipped("load call failed (likely synthetic IDs against live API): " . (string)$err);
+            if (!empty($result["err"])) {
+                $this->markTestSkipped("load call failed (likely synthetic IDs against live API): " . (string)$result["err"]);
                 return;
             }
             if (empty($result["ok"])) {
@@ -50,7 +50,7 @@ class ValidationDirectTest extends TestCase
                 return;
             }
         } else {
-            $this->assertNull($err);
+            $this->assertArrayNotHasKey("err", $result);
             $this->assertTrue($result["ok"]);
             $this->assertEquals(200, Helpers::to_int($result["status"]));
             $this->assertNotNull($result["data"]);
@@ -73,14 +73,12 @@ function validation_direct_setup($mockres)
     $env = Runner::env_override([
         "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID" => [],
         "CREDITCARDVALIDATION_TEST_LIVE" => "FALSE",
-        "CREDITCARDVALIDATION_APIKEY" => "NONE",
     ]);
 
     $live = $env["CREDITCARDVALIDATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["CREDITCARDVALIDATION_APIKEY"],
         ];
         $client = new CreditCardValidationSDK($merged_opts);
         return [

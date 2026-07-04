@@ -42,8 +42,7 @@ class ValidationEntityTest < Minitest::Test
     # LOAD
     validation_ref01_ent = client.Validation(nil)
     validation_ref01_match_dt0 = {}
-    validation_ref01_data_dt0_loaded, err = validation_ref01_ent.load(validation_ref01_match_dt0, nil)
-    assert_nil err
+    validation_ref01_data_dt0_loaded = validation_ref01_ent.load(validation_ref01_match_dt0, nil)
     assert !validation_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def validation_basic_setup(extra)
     "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID" => idmap,
     "CREDITCARDVALIDATION_TEST_LIVE" => "FALSE",
     "CREDITCARDVALIDATION_TEST_EXPLAIN" => "FALSE",
-    "CREDITCARDVALIDATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def validation_basic_setup(extra)
   if env["CREDITCARDVALIDATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["CREDITCARDVALIDATION_APIKEY"],
       },
       extra || {},
     ])

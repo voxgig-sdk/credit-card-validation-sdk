@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Validation,
+  ValidationLoadMatch,
+} from '../CreditCardValidationTypes'
 
 // TODO: needs Entity superclass
-class ValidationEntity extends CreditCardValidationEntityBase {
+class ValidationEntity extends CreditCardValidationEntityBase<Validation> {
 
   constructor(client: CreditCardValidationSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ValidationEntity extends CreditCardValidationEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ValidationLoadMatch, ctrl?: Control): Promise<Validation> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ValidationEntity extends CreditCardValidationEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Validation> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

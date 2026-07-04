@@ -49,8 +49,7 @@ class TestValidationEntity:
         # LOAD
         validation_ref01_ent = client.Validation(None)
         validation_ref01_match_dt0 = {}
-        validation_ref01_data_dt0_loaded, err = validation_ref01_ent.load(validation_ref01_match_dt0, None)
-        assert err is None
+        validation_ref01_data_dt0_loaded = validation_ref01_ent.load(validation_ref01_match_dt0, None)
         assert validation_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _validation_basic_setup(extra):
         "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": idmap,
         "CREDITCARDVALIDATION_TEST_LIVE": "FALSE",
         "CREDITCARDVALIDATION_TEST_EXPLAIN": "FALSE",
-        "CREDITCARDVALIDATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _validation_basic_setup(extra):
     if env.get("CREDITCARDVALIDATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("CREDITCARDVALIDATION_APIKEY"),
             },
             extra or {},
         ])

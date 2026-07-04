@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `CreditCardValidationSDK.test()`.
 ## ValidationEntity
 
 ```ts
-const validation = client.Validation()
+const validation = client.validation
 ```
 
 ### Fields
@@ -131,7 +130,7 @@ const validation = client.Validation()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Validation().load({ id: 'validation_id' })
+const result = await client.validation.load({ id: 'validation_id' })
 ```
 
 ### Common Methods

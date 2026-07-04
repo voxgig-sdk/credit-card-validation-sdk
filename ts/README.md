@@ -9,9 +9,12 @@ The TypeScript SDK for the CreditCardValidation API — a type-safe, entity-orie
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/credit-card-validation
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/credit-card-validation-sdk/releases](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CreditCardValidationSDK } from 'credit-card-validation'
+import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
 
-const client = new CreditCardValidationSDK({
-  apikey: process.env.CREDIT-CARD-VALIDATION_APIKEY,
-})
+const client = new CreditCardValidationSDK()
 ```
 
 ### 3. Load a validation
 
 ```ts
-const result = await client.Validation().load({ id: 'example_id' })
+const result = await client.validation.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CreditCardValidationSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.validation.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new CreditCardValidationSDK({ apikey: '...' })
+const client = new CreditCardValidationSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.validation
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new CreditCardValidationSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new CreditCardValidationSDK({
 Create a `.env.local` file at the project root:
 
 ```
-CREDIT-CARD-VALIDATION_TEST_LIVE=TRUE
-CREDIT-CARD-VALIDATION_APIKEY=<your-key>
+CREDIT_CARD_VALIDATION_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new CreditCardValidationSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new CreditCardValidationSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -271,7 +268,7 @@ API path: `/stripe.php`
 
 ### Validation
 
-Create an instance: `const validation = client.Validation()`
+Create an instance: `const validation = client.validation`
 
 #### Operations
 
@@ -293,7 +290,7 @@ Create an instance: `const validation = client.Validation()`
 #### Example: Load
 
 ```ts
-const validation = await client.Validation().load({ id: 'validation_id' })
+const validation = await client.validation.load({ id: 'validation_id' })
 ```
 
 
@@ -354,7 +351,7 @@ credit-card-validation/
 Import the SDK from the package root:
 
 ```ts
-import { CreditCardValidationSDK } from 'credit-card-validation'
+import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
 ```
 
 ### Entity state
@@ -364,11 +361,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const validation = client.validation
+await validation.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// validation.data() now returns the loaded validation data
+// validation.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

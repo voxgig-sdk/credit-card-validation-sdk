@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:validation():list() / client:validation():load({ id = ... })
+function CreditCardValidationSDK:validation(data)
+  local EntityMod = require("entity.validation_entity")
+  if data == nil then
+    if self._validation == nil then
+      self._validation = EntityMod.new(self, nil)
+    end
+    return self._validation
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:validation() instead.
 function CreditCardValidationSDK:Validation(data)
   local EntityMod = require("entity.validation_entity")
   return EntityMod.new(self, data)
