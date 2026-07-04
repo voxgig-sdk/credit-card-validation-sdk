@@ -208,13 +208,7 @@ class CreditCardValidationSDK
   end
 
 
-  # Idiomatic facade: client.validation.list / client.validation.load({ "id" => ... })
-  def validation
-    require_relative 'entity/validation_entity'
-    @validation ||= ValidationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.validation instead.
+  # Canonical facade: client.Validation.list / client.Validation.load({ "id" => ... })
   def Validation(data = nil)
     require_relative 'entity/validation_entity'
     ValidationEntity.new(self, data)

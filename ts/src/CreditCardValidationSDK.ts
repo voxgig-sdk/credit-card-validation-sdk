@@ -204,14 +204,7 @@ class CreditCardValidationSDK {
 
 
 
-  _validation?: ValidationEntity
-
-  // Idiomatic facade: `client.validation.list()` / `client.validation.load({ id })`.
-  get validation(): ValidationEntity {
-    return (this._validation ??= new ValidationEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.validation` instead. */
+  // Entity access: `client.Validation().list()` / `client.Validation().load({ id })`.
   Validation(data?: any) {
     const self = this
     return new ValidationEntity(self,data)

@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## ValidationEntity
 
 ```lua
-local validation = client:validation(nil)
+local validation = client:Validation(nil)
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ local validation = client:validation(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:validation():load({ id = "validation_id" })
+local result, err = client:Validation():load({ id = "validation_id" })
 ```
 
 ### Common Methods

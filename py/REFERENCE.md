@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ValidationEntity
 
 ```python
-validation = client.validation
+validation = client.Validation()
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ validation = client.validation
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.validation.load({"id": "validation_id"})
+result = client.Validation().load({"id": "validation_id"})
 ```
 
 ### Common Methods

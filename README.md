@@ -26,9 +26,9 @@ import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
 
 const client = new CreditCardValidationSDK()
 
-// Load validation data
-const validation = await client.validation.load({})
-console.log(validation.data)
+// Load validation data (returns a Validation)
+const validation = await client.Validation().load()
+console.log(validation)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from creditcardvalidation_sdk import CreditCardValidationSDK
 client = CreditCardValidationSDK()
 
 
-# Load a specific validation
-validation = client.validation.load({"id": "example_id"})
+# Load a specific validation (returns the record, raises on error)
+validation = client.Validation().load({"id": "example_id"})
 print(validation)
 ```
 
@@ -98,8 +98,8 @@ require_once 'creditcardvalidation_sdk.php';
 $client = new CreditCardValidationSDK();
 
 
-// Load a specific validation
-$validation = $client->validation()->load(["id" => "example_id"]);
+// Load a specific validation (returns the bare record; throws on error)
+$validation = $client->Validation()->load(["id" => "example_id"]);
 print_r($validation);
 ```
 
@@ -123,8 +123,8 @@ require_relative "CreditCardValidation_sdk"
 client = CreditCardValidationSDK.new
 
 
-# Load a specific validation
-validation = client.validation.load({ "id" => "example_id" })
+# Load a specific validation (returns the bare record; raises on error)
+validation = client.Validation.load({ "id" => "example_id" })
 puts validation
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific validation
-local validation, err = client:validation():load({ id = "example_id" })
+local validation, err = client:Validation():load({ id = "example_id" })
 print(validation)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CreditCardValidationSDK.test()
-const result = await client.validation.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const validation = await client.Validation().load({ id: 'test01' })
+// validation is a bare Validation populated with mock data
+console.log(validation)
 ```
 
 ### Python
 
 ```python
 client = CreditCardValidationSDK.test()
-result = client.validation.load({"id": "test01"})
+validation = client.Validation().load({"id": "test01"})
+print(validation)
 ```
 
 ### PHP
 
 ```php
-$client = CreditCardValidationSDK::test();
-$result = $client->validation()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CreditCardValidationSDK::test([
+    "entity" => ["validation" => ["test01" => ["id" => "test01"]]],
+]);
+$validation = $client->Validation()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Validation(nil).Load(
 ### Ruby
 
 ```ruby
-client = CreditCardValidationSDK.test
-result = client.validation.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CreditCardValidationSDK.test({
+  "entity" => { "validation" => { "test01" => { "id" => "test01" } } },
+})
+validation = client.Validation.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:validation():load({ id = "test01" })
+local result, err = client:Validation():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

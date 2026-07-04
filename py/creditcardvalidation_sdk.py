@@ -220,25 +220,15 @@ class CreditCardValidationSDK:
         }
 
 
-    @property
-    def validation(self):
-        """Idiomatic facade: client.validation.list() / client.validation.load({"id": ...})."""
-        from entity.validation_entity import ValidationEntity
-        cached = getattr(self, "_validation", None)
-        if cached is None:
-            cached = ValidationEntity(self, None)
-            self._validation = cached
-        return cached
-
-    def Validation(self, data=None):
-        # Deprecated: use client.validation instead.
+    def Validation(self, data=None) -> "ValidationEntity":
+        """Entity factory: client.Validation().list({}) / client.Validation().load({"id": ...})."""
         from entity.validation_entity import ValidationEntity
         return ValidationEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CreditCardValidationSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class CreditCardValidationSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.validation_entity import ValidationEntity

@@ -233,10 +233,10 @@ class CreditCardValidationSDK
 
     private $_validation = null;
 
-    // Idiomatic facade: $client->validation()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Validation() (PHP method
-    // names are case-insensitive).
-    public function validation($data = null)
+    // Canonical facade: $client->Validation()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->validation()
+    // resolves here too.
+    public function Validation($data = null)
     {
         require_once __DIR__ . '/entity/validation_entity.php';
         if ($data === null) {

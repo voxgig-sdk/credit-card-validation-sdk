@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ValidationEntity
 
 ```php
-$validation = $client->validation();
+$validation = $client->Validation();
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ $validation = $client->validation();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->validation()->load(["id" => "validation_id"]);
+$result = $client->Validation()->load(["id" => "validation_id"]);
 ```
 
 ### Common Methods

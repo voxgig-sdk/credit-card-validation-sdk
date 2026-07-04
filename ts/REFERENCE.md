@@ -109,7 +109,7 @@ Alias for `CreditCardValidationSDK.test()`.
 ## ValidationEntity
 
 ```ts
-const validation = client.validation
+const validation = client.Validation()
 ```
 
 ### Fields
@@ -130,7 +130,7 @@ const validation = client.validation
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.validation.load({ id: 'validation_id' })
+const result = await client.Validation().load({ id: 'validation_id' })
 ```
 
 ### Common Methods

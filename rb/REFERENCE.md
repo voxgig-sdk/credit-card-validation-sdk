@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## ValidationEntity
 
 ```ruby
-validation = client.validation
+validation = client.Validation
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ validation = client.validation
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.validation.load({ "id" => "validation_id" })
+result = client.Validation.load({ "id" => "validation_id" })
 ```
 
 ### Common Methods
