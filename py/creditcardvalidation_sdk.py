@@ -221,7 +221,7 @@ class CreditCardValidationSDK:
 
 
     def Validation(self, data=None) -> "ValidationEntity":
-        """Entity factory: client.Validation().list({}) / client.Validation().load({"id": ...})."""
+        """Entity factory: client.Validation().list() / client.Validation().load({"id": ...})."""
         from entity.validation_entity import ValidationEntity
         return ValidationEntity(self, data)
 

@@ -8,7 +8,7 @@ Complete API reference for the CreditCardValidation Python SDK.
 ### Constructor
 
 ```python
-from credit-card-validation_sdk import CreditCardValidationSDK
+from creditcardvalidation_sdk import CreditCardValidationSDK
 
 client = CreditCardValidationSDK(options)
 ```
@@ -87,12 +87,12 @@ validation = client.Validation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | ``$STRING`` | No |  |
-| `card_type` | ``$STRING`` | No |  |
-| `expiration_valid` | ``$BOOLEAN`` | No |  |
-| `luhn_check` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `valid` | ``$BOOLEAN`` | No |  |
+| `card_number` | `str` | No |  |
+| `card_type` | `str` | No |  |
+| `expiration_valid` | `bool` | No |  |
+| `luhn_check` | `bool` | No |  |
+| `message` | `str` | No |  |
+| `valid` | `bool` | No |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ validation = client.Validation()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Validation().load({"id": "validation_id"})
+result = client.Validation().load()
 ```
 
 ### Common Methods

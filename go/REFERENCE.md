@@ -97,12 +97,12 @@ validation := client.Validation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | ``$STRING`` | No |  |
-| `card_type` | ``$STRING`` | No |  |
-| `expiration_valid` | ``$BOOLEAN`` | No |  |
-| `luhn_check` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `valid` | ``$BOOLEAN`` | No |  |
+| `card_number` | `string` | No |  |
+| `card_type` | `string` | No |  |
+| `expiration_valid` | `bool` | No |  |
+| `luhn_check` | `bool` | No |  |
+| `message` | `string` | No |  |
+| `valid` | `bool` | No |  |
 
 ### Operations
 
@@ -111,7 +111,7 @@ validation := client.Validation(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Validation(nil).Load(map[string]any{"id": "validation_id"}, nil)
+result, err := client.Validation(nil).Load(nil, nil)
 ```
 
 ### Common Methods

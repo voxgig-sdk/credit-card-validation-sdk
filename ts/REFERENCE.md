@@ -116,12 +116,12 @@ const validation = client.Validation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | ``$STRING`` | No |  |
-| `card_type` | ``$STRING`` | No |  |
-| `expiration_valid` | ``$BOOLEAN`` | No |  |
-| `luhn_check` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `valid` | ``$BOOLEAN`` | No |  |
+| `card_number` | `string` | No |  |
+| `card_type` | `string` | No |  |
+| `expiration_valid` | `boolean` | No |  |
+| `luhn_check` | `boolean` | No |  |
+| `message` | `string` | No |  |
+| `valid` | `boolean` | No |  |
 
 ### Operations
 
@@ -130,7 +130,7 @@ const validation = client.Validation()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Validation().load({ id: 'validation_id' })
+const result = await client.Validation().load()
 ```
 
 ### Common Methods

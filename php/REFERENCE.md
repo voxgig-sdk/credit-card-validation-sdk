@@ -8,7 +8,7 @@ Complete API reference for the CreditCardValidation PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/credit-card-validation_sdk.php';
+require_once __DIR__ . '/creditcardvalidation_sdk.php';
 
 $client = new CreditCardValidationSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = CreditCardValidationSDK::test();
 
 Create a new `ValidationEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): CreditCardValidationUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,12 +92,12 @@ $validation = $client->Validation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | ``$STRING`` | No |  |
-| `card_type` | ``$STRING`` | No |  |
-| `expiration_valid` | ``$BOOLEAN`` | No |  |
-| `luhn_check` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `valid` | ``$BOOLEAN`` | No |  |
+| `card_number` | `string` | No |  |
+| `card_type` | `string` | No |  |
+| `expiration_valid` | `bool` | No |  |
+| `luhn_check` | `bool` | No |  |
+| `message` | `string` | No |  |
+| `valid` | `bool` | No |  |
 
 ### Operations
 
@@ -106,24 +106,24 @@ $validation = $client->Validation();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Validation()->load(["id" => "validation_id"]);
+$result = $client->Validation()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -132,7 +132,7 @@ Set the entity match criteria.
 Create a new `ValidationEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

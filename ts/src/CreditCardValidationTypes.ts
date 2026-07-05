@@ -14,5 +14,12 @@ export interface Validation {
   valid?: boolean
 }
 
-export type ValidationLoadMatch = Partial<Validation>
+export interface ValidationLoadMatch {
+  card_number?: string
+  card_type?: string
+  expiration_valid?: boolean
+  luhn_check?: boolean
+  message?: string
+  valid?: boolean
+}
 

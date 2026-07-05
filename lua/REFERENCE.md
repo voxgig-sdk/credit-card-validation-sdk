@@ -90,12 +90,12 @@ local validation = client:Validation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | ``$STRING`` | No |  |
-| `card_type` | ``$STRING`` | No |  |
-| `expiration_valid` | ``$BOOLEAN`` | No |  |
-| `luhn_check` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `valid` | ``$BOOLEAN`` | No |  |
+| `card_number` | `string` | No |  |
+| `card_type` | `string` | No |  |
+| `expiration_valid` | `boolean` | No |  |
+| `luhn_check` | `boolean` | No |  |
+| `message` | `string` | No |  |
+| `valid` | `boolean` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ local validation = client:Validation(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Validation():load({ id = "validation_id" })
+local result, err = client:Validation():load()
 ```
 
 ### Common Methods

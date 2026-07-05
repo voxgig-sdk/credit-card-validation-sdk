@@ -8,7 +8,7 @@ Complete API reference for the CreditCardValidation Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'credit-card-validation_sdk'
+require_relative 'CreditCardValidation_sdk'
 
 client = CreditCardValidationSDK.new(options)
 ```
@@ -93,12 +93,12 @@ validation = client.Validation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | ``$STRING`` | No |  |
-| `card_type` | ``$STRING`` | No |  |
-| `expiration_valid` | ``$BOOLEAN`` | No |  |
-| `luhn_check` | ``$BOOLEAN`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `valid` | ``$BOOLEAN`` | No |  |
+| `card_number` | `String` | No |  |
+| `card_type` | `String` | No |  |
+| `expiration_valid` | `Boolean` | No |  |
+| `luhn_check` | `Boolean` | No |  |
+| `message` | `String` | No |  |
+| `valid` | `Boolean` | No |  |
 
 ### Operations
 
@@ -107,7 +107,7 @@ validation = client.Validation
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Validation.load({ "id" => "validation_id" })
+result = client.Validation.load()
 ```
 
 ### Common Methods

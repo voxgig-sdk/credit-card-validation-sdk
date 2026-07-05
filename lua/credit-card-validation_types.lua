@@ -15,6 +15,12 @@
 ---@field valid? boolean
 
 ---@class ValidationLoadMatch
+---@field card_number? string
+---@field card_type? string
+---@field expiration_valid? boolean
+---@field luhn_check? boolean
+---@field message? string
+---@field valid? boolean
 
 local M = {}
 
