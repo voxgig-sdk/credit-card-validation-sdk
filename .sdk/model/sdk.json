@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -260,14 +257,17 @@
           "url": "https://arielservices.ct.ws/stripe.php?cc="
         },
         "description": "This API verifies the validity and authenticity of credit card details provided by users. It checks the card number format, expiration date, and other related information to ensure reliability and security in transactions.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://arielservices.ct.ws"
           }
         ],
+        "summary": "This API verifies the validity and authenticity of credit card details provided by users.",
         "title": "Credit Card Validation API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://arielservices.ct.ws"
       },
       "option": {},
       "target": {
@@ -320,6 +320,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -370,6 +373,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -15,9 +15,9 @@ main: {
           url: "https://arielservices.ct.ws"
         }
       ]
+      summary: "This API verifies the validity and authenticity of credit card details provided by users."
       title: "Credit Card Validation API"
       version: "1.0.0"
+      website: "https://arielservices.ct.ws"
     }
   }
-}
-
