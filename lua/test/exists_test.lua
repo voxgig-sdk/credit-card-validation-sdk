@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- CreditCardValidation SDK exists test
 
 local sdk = require("credit-card-validation_sdk")
 
