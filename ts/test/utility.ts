@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.CREDITCARDVALIDATION_TEST_LIVE ||
-    'TRUE' === process.env.CREDITCARDVALIDATION_TEST_OVERRIDE
+    'TRUE' === process.env.CREDIT_CARD_VALIDATION_TEST_LIVE ||
+    'TRUE' === process.env.CREDIT_CARD_VALIDATION_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.CREDITCARDVALIDATION_TEST_EXPLAIN = process.env.CREDITCARDVALIDATION_TEST_EXPLAIN || m.CREDITCARDVALIDATION_TEST_EXPLAIN
+  m.CREDIT_CARD_VALIDATION_TEST_EXPLAIN = process.env.CREDIT_CARD_VALIDATION_TEST_EXPLAIN || m.CREDIT_CARD_VALIDATION_TEST_EXPLAIN
 
   return m
 }

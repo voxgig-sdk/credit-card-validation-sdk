@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CreditCardValidationControl
-from core.error import CreditCardValidationError
-from core.result import CreditCardValidationResult
-from core.spec import CreditCardValidationSpec
+from creditcardvalidation_sdk.config import make_config
+from creditcardvalidation_sdk.features import _make_feature
+from creditcardvalidation_sdk.core.control import CreditCardValidationControl
+from creditcardvalidation_sdk.core.error import CreditCardValidationError
+from creditcardvalidation_sdk.core.result import CreditCardValidationResult
+from creditcardvalidation_sdk.core.spec import CreditCardValidationSpec
 
 
 # True when this SDK was generated with the named feature.

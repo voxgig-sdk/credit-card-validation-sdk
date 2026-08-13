@@ -258,10 +258,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"card_number"` |  |
-| `"card_type"` |  |
-| `"expiration_valid"` |  |
-| `"luhn_check"` |  |
+| `"cardNumber"` |  |
+| `"cardType"` |  |
+| `"expirationValid"` |  |
+| `"luhnCheck"` |  |
 | `"message"` |  |
 | `"valid"` |  |
 
@@ -288,10 +288,10 @@ Create an instance: `validation := client.Validation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `card_number` | `string` |  |
-| `card_type` | `string` |  |
-| `expiration_valid` | `bool` |  |
-| `luhn_check` | `bool` |  |
+| `cardNumber` | `string` |  |
+| `cardType` | `string` |  |
+| `expirationValid` | `bool` |  |
+| `luhnCheck` | `bool` |  |
 | `message` | `string` |  |
 | `valid` | `bool` |  |
 

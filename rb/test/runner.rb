@@ -23,8 +23,8 @@ module CreditCardValidationTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("CREDITCARDVALIDATION_TEST_LIVE")
-    override = getenv("CREDITCARDVALIDATION_TEST_OVERRIDE")
+    live = getenv("CREDIT_CARD_VALIDATION_TEST_LIVE")
+    override = getenv("CREDIT_CARD_VALIDATION_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module CreditCardValidationTestRunner
       end
     end
 
-    explain = getenv("CREDITCARDVALIDATION_TEST_EXPLAIN")
-    m["CREDITCARDVALIDATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("CREDIT_CARD_VALIDATION_TEST_EXPLAIN")
+    m["CREDIT_CARD_VALIDATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# CreditCardValidation SDK exists test
 
 import pytest
 from creditcardvalidation_sdk import CreditCardValidationSDK

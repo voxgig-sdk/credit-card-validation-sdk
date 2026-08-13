@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'CreditCardValidation',
   }
 
 
@@ -56,28 +56,28 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "card_number",
+          "name": "cardNumber",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "card_type",
+          "name": "cardType",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "expiration_valid",
+          "name": "expirationValid",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "luhn_check",
+          "name": "luhnCheck",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 3
@@ -136,6 +136,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/stripe.php",
               "parts": [

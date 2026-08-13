@@ -225,10 +225,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `card_number` |  |
-| `card_type` |  |
-| `expiration_valid` |  |
-| `luhn_check` |  |
+| `cardNumber` |  |
+| `cardType` |  |
+| `expirationValid` |  |
+| `luhnCheck` |  |
 | `message` |  |
 | `valid` |  |
 
@@ -255,10 +255,10 @@ Create an instance: `local validation = client:Validation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `card_number` | `string` |  |
-| `card_type` | `string` |  |
-| `expiration_valid` | `boolean` |  |
-| `luhn_check` | `boolean` |  |
+| `cardNumber` | `string` |  |
+| `cardType` | `string` |  |
+| `expirationValid` | `boolean` |  |
+| `luhnCheck` | `boolean` |  |
 | `message` | `string` |  |
 | `valid` | `boolean` |  |
 

@@ -15,10 +15,10 @@ declare(strict_types=1);
 /** Validation entity data model. */
 class Validation
 {
-    public ?string $card_number = null;
-    public ?string $card_type = null;
-    public ?bool $expiration_valid = null;
-    public ?bool $luhn_check = null;
+    public ?string $cardNumber = null;
+    public ?string $cardType = null;
+    public ?bool $expirationValid = null;
+    public ?bool $luhnCheck = null;
     public ?string $message = null;
     public ?bool $valid = null;
 }
@@ -26,10 +26,10 @@ class Validation
 /** Request payload for Validation#load. */
 class ValidationLoadMatch
 {
-    public ?string $card_number = null;
-    public ?string $card_type = null;
-    public ?bool $expiration_valid = null;
-    public ?bool $luhn_check = null;
+    public ?string $cardNumber = null;
+    public ?string $cardType = null;
+    public ?bool $expirationValid = null;
+    public ?bool $luhnCheck = null;
     public ?string $message = null;
     public ?bool $valid = null;
 }

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from creditcardvalidation_sdk.utility.voxgig_struct import voxgig_struct as vs
 from creditcardvalidation_sdk import CreditCardValidationSDK
-from core import helpers
+from creditcardvalidation_sdk.core import helpers
 from test import runner
 
 
@@ -61,11 +61,11 @@ def _validation_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID": {},
-        "CREDITCARDVALIDATION_TEST_LIVE": "FALSE",
+        "CREDIT_CARD_VALIDATION_TEST_VALIDATION_ENTID": {},
+        "CREDIT_CARD_VALIDATION_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("CREDITCARDVALIDATION_TEST_LIVE") == "TRUE"
+    live = env.get("CREDIT_CARD_VALIDATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

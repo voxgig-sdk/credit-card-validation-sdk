@@ -34,7 +34,7 @@ client = CreditCardValidationSDK.new
 
 ```ruby
 begin
-  # load returns the bare Validation record (raises on error).
+  # load returns the ENTITY — call data_get for the Validation record (raises on error).
   validation = client.Validation.load()
   puts validation
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CreditCardValidationSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 validation = client.Validation.load()
 puts validation
 ```
@@ -234,10 +235,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `card_number` |  |
-| `card_type` |  |
-| `expiration_valid` |  |
-| `luhn_check` |  |
+| `cardNumber` |  |
+| `cardType` |  |
+| `expirationValid` |  |
+| `luhnCheck` |  |
 | `message` |  |
 | `valid` |  |
 
@@ -264,17 +265,17 @@ Create an instance: `validation = client.Validation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `card_number` | `String` |  |
-| `card_type` | `String` |  |
-| `expiration_valid` | `Boolean` |  |
-| `luhn_check` | `Boolean` |  |
+| `cardNumber` | `String` |  |
+| `cardType` | `String` |  |
+| `expirationValid` | `Boolean` |  |
+| `luhnCheck` | `Boolean` |  |
 | `message` | `String` |  |
 | `valid` | `Boolean` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Validation record (raises on error).
+# load returns the ENTITY — call data_get for the Validation record (raises on error).
 validation = client.Validation.load()
 ```
 

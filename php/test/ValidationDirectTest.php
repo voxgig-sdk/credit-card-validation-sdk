@@ -71,11 +71,11 @@ function validation_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "CREDITCARDVALIDATION_TEST_VALIDATION_ENTID" => [],
-        "CREDITCARDVALIDATION_TEST_LIVE" => "FALSE",
+        "CREDIT_CARD_VALIDATION_TEST_VALIDATION_ENTID" => [],
+        "CREDIT_CARD_VALIDATION_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["CREDITCARDVALIDATION_TEST_LIVE"] === "TRUE";
+    $live = $env["CREDIT_CARD_VALIDATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

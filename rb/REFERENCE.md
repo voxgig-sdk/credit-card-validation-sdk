@@ -93,10 +93,10 @@ validation = client.Validation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | `String` | No |  |
-| `card_type` | `String` | No |  |
-| `expiration_valid` | `Boolean` | No |  |
-| `luhn_check` | `Boolean` | No |  |
+| `cardNumber` | `String` | No |  |
+| `cardType` | `String` | No |  |
+| `expirationValid` | `Boolean` | No |  |
+| `luhnCheck` | `Boolean` | No |  |
 | `message` | `String` | No |  |
 | `valid` | `Boolean` | No |  |
 

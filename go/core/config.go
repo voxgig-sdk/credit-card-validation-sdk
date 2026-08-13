@@ -26,28 +26,28 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "card_number",
+						"name": "cardNumber",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "card_type",
+						"name": "cardType",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "expiration_valid",
+						"name": "expirationValid",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "luhn_check",
+						"name": "luhnCheck",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 3,
@@ -106,6 +106,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/stripe.php",
 								"parts": []any{
@@ -125,7 +126,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

@@ -92,10 +92,10 @@ $validation = $client->Validation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | `string` | No |  |
-| `card_type` | `string` | No |  |
-| `expiration_valid` | `bool` | No |  |
-| `luhn_check` | `bool` | No |  |
+| `cardNumber` | `string` | No |  |
+| `cardType` | `string` | No |  |
+| `expirationValid` | `bool` | No |  |
+| `luhnCheck` | `bool` | No |  |
 | `message` | `string` | No |  |
 | `valid` | `bool` | No |  |
 

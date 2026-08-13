@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = CreditCardValidationSDK.test()
 
 const validation = await client.Validation().load()
-// validation is a bare entity populated with mock response data
+// validation is the entity, populated with mock response data
+// — call validation.data() for the record itself
 console.log(validation)
 ```
 
@@ -284,10 +285,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `card_number` |  |
-| `card_type` |  |
-| `expiration_valid` |  |
-| `luhn_check` |  |
+| `cardNumber` |  |
+| `cardType` |  |
+| `expirationValid` |  |
+| `luhnCheck` |  |
 | `message` |  |
 | `valid` |  |
 
@@ -314,10 +315,10 @@ Create an instance: `const validation = client.Validation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `card_number` | `string` |  |
-| `card_type` | `string` |  |
-| `expiration_valid` | `boolean` |  |
-| `luhn_check` | `boolean` |  |
+| `cardNumber` | `string` |  |
+| `cardType` | `string` |  |
+| `expirationValid` | `boolean` |  |
+| `luhnCheck` | `boolean` |  |
 | `message` | `string` |  |
 | `valid` | `boolean` |  |
 

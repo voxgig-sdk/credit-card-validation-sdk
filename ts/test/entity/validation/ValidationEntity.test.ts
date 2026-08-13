@@ -26,8 +26,8 @@ import {
 describe('ValidationEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when CREDITCARDVALIDATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('CREDITCARDVALIDATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when CREDIT_CARD_VALIDATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CREDIT_CARD_VALIDATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = CreditCardValidationSDK.test()
@@ -62,7 +62,7 @@ describe('ValidationEntity', async () => {
     // LOAD
     const validation_ref01_ent = client.Validation()
     const validation_ref01_match_dt0: any = {}
-    const validation_ref01_data_dt0 = await validation_ref01_ent.load(validation_ref01_match_dt0)
+    const validation_ref01_data_dt0 = (await validation_ref01_ent.load(validation_ref01_match_dt0)).data()
     assert(null != validation_ref01_data_dt0)
 
 

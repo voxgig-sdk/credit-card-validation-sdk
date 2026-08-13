@@ -43,8 +43,8 @@ class CreditCardValidationTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('CREDITCARDVALIDATION_TEST_LIVE');
-        $override = self::getenv('CREDITCARDVALIDATION_TEST_OVERRIDE');
+        $live = self::getenv('CREDIT_CARD_VALIDATION_TEST_LIVE');
+        $override = self::getenv('CREDIT_CARD_VALIDATION_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class CreditCardValidationTestRunner
             }
         }
 
-        $explain = self::getenv('CREDITCARDVALIDATION_TEST_EXPLAIN');
+        $explain = self::getenv('CREDIT_CARD_VALIDATION_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['CREDITCARDVALIDATION_TEST_EXPLAIN'] = $explain;
+            $m['CREDIT_CARD_VALIDATION_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

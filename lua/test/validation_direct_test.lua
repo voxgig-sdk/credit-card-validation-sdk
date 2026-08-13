@@ -66,11 +66,11 @@ function validation_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["CREDITCARDVALIDATION_TEST_VALIDATION_ENTID"] = {},
-    ["CREDITCARDVALIDATION_TEST_LIVE"] = "FALSE",
+    ["CREDIT_CARD_VALIDATION_TEST_VALIDATION_ENTID"] = {},
+    ["CREDIT_CARD_VALIDATION_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["CREDITCARDVALIDATION_TEST_LIVE"] == "TRUE"
+  local live = env["CREDIT_CARD_VALIDATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

@@ -116,10 +116,10 @@ const validation = client.Validation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `card_number` | `string` | No |  |
-| `card_type` | `string` | No |  |
-| `expiration_valid` | `boolean` | No |  |
-| `luhn_check` | `boolean` | No |  |
+| `cardNumber` | `string` | No |  |
+| `cardType` | `string` | No |  |
+| `expirationValid` | `boolean` | No |  |
+| `luhnCheck` | `boolean` | No |  |
 | `message` | `string` | No |  |
 | `valid` | `boolean` | No |  |
 

@@ -6,19 +6,19 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Validation {
-  card_number?: string
-  card_type?: string
-  expiration_valid?: boolean
-  luhn_check?: boolean
+  cardNumber?: string
+  cardType?: string
+  expirationValid?: boolean
+  luhnCheck?: boolean
   message?: string
   valid?: boolean
 }
 
 export interface ValidationLoadMatch {
-  card_number?: string
-  card_type?: string
-  expiration_valid?: boolean
-  luhn_check?: boolean
+  cardNumber?: string
+  cardType?: string
+  expirationValid?: boolean
+  luhnCheck?: boolean
   message?: string
   valid?: boolean
 }

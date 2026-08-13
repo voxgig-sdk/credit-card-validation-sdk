@@ -7,18 +7,18 @@
 -- edit by hand.
 
 ---@class Validation
----@field card_number? string
----@field card_type? string
----@field expiration_valid? boolean
----@field luhn_check? boolean
+---@field cardNumber? string
+---@field cardType? string
+---@field expirationValid? boolean
+---@field luhnCheck? boolean
 ---@field message? string
 ---@field valid? boolean
 
 ---@class ValidationLoadMatch
----@field card_number? string
----@field card_type? string
----@field expiration_valid? boolean
----@field luhn_check? boolean
+---@field cardNumber? string
+---@field cardType? string
+---@field expirationValid? boolean
+---@field luhnCheck? boolean
 ---@field message? string
 ---@field valid? boolean
 

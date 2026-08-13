@@ -38,7 +38,7 @@ client = CreditCardValidationSDK()
 
 ### 3. Load a validation
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CreditCardValidationSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 validation = client.Validation().load()
 # validation contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -240,10 +241,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `card_number` |  |
-| `card_type` |  |
-| `expiration_valid` |  |
-| `luhn_check` |  |
+| `cardNumber` |  |
+| `cardType` |  |
+| `expirationValid` |  |
+| `luhnCheck` |  |
 | `message` |  |
 | `valid` |  |
 
@@ -270,10 +271,10 @@ Create an instance: `validation = client.Validation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `card_number` | `str` |  |
-| `card_type` | `str` |  |
-| `expiration_valid` | `bool` |  |
-| `luhn_check` | `bool` |  |
+| `cardNumber` | `str` |  |
+| `cardType` | `str` |  |
+| `expirationValid` | `bool` |  |
+| `luhnCheck` | `bool` |  |
 | `message` | `str` |  |
 | `valid` | `bool` |  |
 

@@ -10,16 +10,16 @@
 
 # Validation entity data model.
 #
-# @!attribute [rw] card_number
+# @!attribute [rw] cardNumber
 #   @return [String, nil]
 #
-# @!attribute [rw] card_type
+# @!attribute [rw] cardType
 #   @return [String, nil]
 #
-# @!attribute [rw] expiration_valid
+# @!attribute [rw] expirationValid
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] luhn_check
+# @!attribute [rw] luhnCheck
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] message
@@ -28,10 +28,10 @@
 # @!attribute [rw] valid
 #   @return [Boolean, nil]
 Validation = Struct.new(
-  :card_number,
-  :card_type,
-  :expiration_valid,
-  :luhn_check,
+  :cardNumber,
+  :cardType,
+  :expirationValid,
+  :luhnCheck,
   :message,
   :valid,
   keyword_init: true
@@ -39,16 +39,16 @@ Validation = Struct.new(
 
 # Request payload for Validation#load.
 #
-# @!attribute [rw] card_number
+# @!attribute [rw] cardNumber
 #   @return [String, nil]
 #
-# @!attribute [rw] card_type
+# @!attribute [rw] cardType
 #   @return [String, nil]
 #
-# @!attribute [rw] expiration_valid
+# @!attribute [rw] expirationValid
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] luhn_check
+# @!attribute [rw] luhnCheck
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] message
@@ -57,10 +57,10 @@ Validation = Struct.new(
 # @!attribute [rw] valid
 #   @return [Boolean, nil]
 ValidationLoadMatch = Struct.new(
-  :card_number,
-  :card_type,
-  :expiration_valid,
-  :luhn_check,
+  :cardNumber,
+  :cardType,
+  :expirationValid,
+  :luhnCheck,
   :message,
   :valid,
   keyword_init: true

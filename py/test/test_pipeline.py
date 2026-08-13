@@ -16,11 +16,11 @@
 import pytest
 
 from creditcardvalidation_sdk import CreditCardValidationSDK
-from core.error import CreditCardValidationError
-from core.result import CreditCardValidationResult
-from core.response import CreditCardValidationResponse
-from core.spec import CreditCardValidationSpec
-from feature.base_feature import CreditCardValidationBaseFeature
+from creditcardvalidation_sdk.core.error import CreditCardValidationError
+from creditcardvalidation_sdk.core.result import CreditCardValidationResult
+from creditcardvalidation_sdk.core.response import CreditCardValidationResponse
+from creditcardvalidation_sdk.core.spec import CreditCardValidationSpec
+from creditcardvalidation_sdk.feature.base_feature import CreditCardValidationBaseFeature
 
 
 def _client():
