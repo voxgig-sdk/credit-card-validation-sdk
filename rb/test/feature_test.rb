@@ -15,7 +15,7 @@ require_relative "../CreditCardValidation_sdk"
 module CreditCardValidationFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = CreditCardValidationConfig.make_config["feature"]
+    f = CreditCardValidationConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

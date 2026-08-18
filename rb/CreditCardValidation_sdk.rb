@@ -28,7 +28,7 @@ class CreditCardValidationSDK
     utility = CreditCardValidationUtility.new
     @_utility = utility
 
-    config = CreditCardValidationConfig.make_config
+    config = CreditCardValidationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
