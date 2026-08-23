@@ -19,6 +19,9 @@ module CreditCardValidationConfig
     {
       "main" => {
         "name" => "CreditCardValidation",
+        "slug" => "credit-card-validation",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -41,26 +44,32 @@ module CreditCardValidationConfig
           "fields" => [
             {
               "name" => "cardNumber",
+              "short" => "Masked credit card number",
               "type" => "`$STRING`",
             },
             {
               "name" => "cardType",
+              "short" => "Type of credit card (Visa, MasterCard, American Express, etc.)",
               "type" => "`$STRING`",
             },
             {
               "name" => "expirationValid",
+              "short" => "Indicates whether the expiration date is valid and not expired",
               "type" => "`$BOOLEAN`",
             },
             {
               "name" => "luhnCheck",
+              "short" => "Result of Luhn algorithm validation",
               "type" => "`$BOOLEAN`",
             },
             {
               "name" => "message",
+              "short" => "Additional information or error message",
               "type" => "`$STRING`",
             },
             {
               "name" => "valid",
+              "short" => "Indicates whether the credit card is valid",
               "type" => "`$BOOLEAN`",
             },
           ],

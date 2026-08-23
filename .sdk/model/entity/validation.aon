@@ -8,31 +8,37 @@ main: kit: entity: validation: {
     {
       name: "cardNumber"
       req: false
+      short: "Masked credit card number"
       type: "`$STRING`"
     }
     {
       name: "cardType"
       req: false
+      short: "Type of credit card (Visa, MasterCard, American Express, etc.)"
       type: "`$STRING`"
     }
     {
       name: "expirationValid"
       req: false
+      short: "Indicates whether the expiration date is valid and not expired"
       type: "`$BOOLEAN`"
     }
     {
       name: "luhnCheck"
       req: false
+      short: "Result of Luhn algorithm validation"
       type: "`$BOOLEAN`"
     }
     {
       name: "message"
       req: false
+      short: "Additional information or error message"
       type: "`$STRING`"
     }
     {
       name: "valid"
       req: false
+      short: "Indicates whether the credit card is valid"
       type: "`$BOOLEAN`"
     }
   ]

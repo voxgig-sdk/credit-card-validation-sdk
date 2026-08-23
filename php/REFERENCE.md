@@ -92,12 +92,12 @@ $validation = $client->Validation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cardNumber` | `string` | No |  |
-| `cardType` | `string` | No |  |
-| `expirationValid` | `bool` | No |  |
-| `luhnCheck` | `bool` | No |  |
-| `message` | `string` | No |  |
-| `valid` | `bool` | No |  |
+| `cardNumber` | `string` | No | Masked credit card number |
+| `cardType` | `string` | No | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `bool` | No | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `bool` | No | Result of Luhn algorithm validation |
+| `message` | `string` | No | Additional information or error message |
+| `valid` | `bool` | No | Indicates whether the credit card is valid |
 
 ### Operations
 

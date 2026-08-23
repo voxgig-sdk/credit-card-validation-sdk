@@ -93,12 +93,12 @@ validation = client.Validation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cardNumber` | `String` | No |  |
-| `cardType` | `String` | No |  |
-| `expirationValid` | `Boolean` | No |  |
-| `luhnCheck` | `Boolean` | No |  |
-| `message` | `String` | No |  |
-| `valid` | `Boolean` | No |  |
+| `cardNumber` | `String` | No | Masked credit card number |
+| `cardType` | `String` | No | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `Boolean` | No | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `Boolean` | No | Result of Luhn algorithm validation |
+| `message` | `String` | No | Additional information or error message |
+| `valid` | `Boolean` | No | Indicates whether the credit card is valid |
 
 ### Operations
 

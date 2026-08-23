@@ -116,12 +116,12 @@ const validation = client.Validation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cardNumber` | `string` | No |  |
-| `cardType` | `string` | No |  |
-| `expirationValid` | `boolean` | No |  |
-| `luhnCheck` | `boolean` | No |  |
-| `message` | `string` | No |  |
-| `valid` | `boolean` | No |  |
+| `cardNumber` | `string` | No | Masked credit card number |
+| `cardType` | `string` | No | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `boolean` | No | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `boolean` | No | Result of Luhn algorithm validation |
+| `message` | `string` | No | Additional information or error message |
+| `valid` | `boolean` | No | Indicates whether the credit card is valid |
 
 ### Operations
 

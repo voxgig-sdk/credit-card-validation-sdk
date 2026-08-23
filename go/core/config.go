@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "CreditCardValidation",
+			"slug": "credit-card-validation",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,26 +36,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "cardNumber",
+						"short": "Masked credit card number",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cardType",
+						"short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "expirationValid",
+						"short": "Indicates whether the expiration date is valid and not expired",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "luhnCheck",
+						"short": "Result of Luhn algorithm validation",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "message",
+						"short": "Additional information or error message",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "valid",
+						"short": "Indicates whether the credit card is valid",
 						"type": "`$BOOLEAN`",
 					},
 				},

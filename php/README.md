@@ -245,12 +245,12 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `cardNumber` |  |
-| `cardType` |  |
-| `expirationValid` |  |
-| `luhnCheck` |  |
-| `message` |  |
-| `valid` |  |
+| `cardNumber` | Masked credit card number |
+| `cardType` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | Result of Luhn algorithm validation |
+| `message` | Additional information or error message |
+| `valid` | Indicates whether the credit card is valid |
 
 Operations: Load.
 
@@ -275,12 +275,12 @@ Create an instance: `$validation = $client->Validation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cardNumber` | `string` |  |
-| `cardType` | `string` |  |
-| `expirationValid` | `bool` |  |
-| `luhnCheck` | `bool` |  |
-| `message` | `string` |  |
-| `valid` | `bool` |  |
+| `cardNumber` | `string` | Masked credit card number |
+| `cardType` | `string` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `bool` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `bool` | Result of Luhn algorithm validation |
+| `message` | `string` | Additional information or error message |
+| `valid` | `bool` | Indicates whether the credit card is valid |
 
 #### Example: Load
 

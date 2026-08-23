@@ -225,12 +225,12 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `cardNumber` |  |
-| `cardType` |  |
-| `expirationValid` |  |
-| `luhnCheck` |  |
-| `message` |  |
-| `valid` |  |
+| `cardNumber` | Masked credit card number |
+| `cardType` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | Result of Luhn algorithm validation |
+| `message` | Additional information or error message |
+| `valid` | Indicates whether the credit card is valid |
 
 Operations: Load.
 
@@ -255,12 +255,12 @@ Create an instance: `local validation = client:Validation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cardNumber` | `string` |  |
-| `cardType` | `string` |  |
-| `expirationValid` | `boolean` |  |
-| `luhnCheck` | `boolean` |  |
-| `message` | `string` |  |
-| `valid` | `boolean` |  |
+| `cardNumber` | `string` | Masked credit card number |
+| `cardType` | `string` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `boolean` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `boolean` | Result of Luhn algorithm validation |
+| `message` | `string` | Additional information or error message |
+| `valid` | `boolean` | Indicates whether the credit card is valid |
 
 #### Example: Load
 

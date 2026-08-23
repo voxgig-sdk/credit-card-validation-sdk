@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,12 +285,12 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `cardNumber` |  |
-| `cardType` |  |
-| `expirationValid` |  |
-| `luhnCheck` |  |
-| `message` |  |
-| `valid` |  |
+| `cardNumber` | Masked credit card number |
+| `cardType` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | Result of Luhn algorithm validation |
+| `message` | Additional information or error message |
+| `valid` | Indicates whether the credit card is valid |
 
 Operations: load.
 
@@ -315,12 +315,12 @@ Create an instance: `const validation = client.Validation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cardNumber` | `string` |  |
-| `cardType` | `string` |  |
-| `expirationValid` | `boolean` |  |
-| `luhnCheck` | `boolean` |  |
-| `message` | `string` |  |
-| `valid` | `boolean` |  |
+| `cardNumber` | `string` | Masked credit card number |
+| `cardType` | `string` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `boolean` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `boolean` | Result of Luhn algorithm validation |
+| `message` | `string` | Additional information or error message |
+| `valid` | `boolean` | Indicates whether the credit card is valid |
 
 #### Example: Load
 

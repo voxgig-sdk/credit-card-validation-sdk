@@ -235,12 +235,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `cardNumber` |  |
-| `cardType` |  |
-| `expirationValid` |  |
-| `luhnCheck` |  |
-| `message` |  |
-| `valid` |  |
+| `cardNumber` | Masked credit card number |
+| `cardType` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | Result of Luhn algorithm validation |
+| `message` | Additional information or error message |
+| `valid` | Indicates whether the credit card is valid |
 
 Operations: Load.
 
@@ -265,12 +265,12 @@ Create an instance: `validation = client.Validation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cardNumber` | `String` |  |
-| `cardType` | `String` |  |
-| `expirationValid` | `Boolean` |  |
-| `luhnCheck` | `Boolean` |  |
-| `message` | `String` |  |
-| `valid` | `Boolean` |  |
+| `cardNumber` | `String` | Masked credit card number |
+| `cardType` | `String` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `Boolean` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `Boolean` | Result of Luhn algorithm validation |
+| `message` | `String` | Additional information or error message |
+| `valid` | `Boolean` | Indicates whether the credit card is valid |
 
 #### Example: Load
 

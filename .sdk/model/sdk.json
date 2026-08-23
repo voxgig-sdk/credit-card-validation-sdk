@@ -36,36 +36,42 @@
               "active": true,
               "name": "cardNumber",
               "req": false,
+              "short": "Masked credit card number",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cardType",
               "req": false,
+              "short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "expirationValid",
               "req": false,
+              "short": "Indicates whether the expiration date is valid and not expired",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "luhnCheck",
               "req": false,
+              "short": "Result of Luhn algorithm validation",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "message",
               "req": false,
+              "short": "Additional information or error message",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "valid",
               "req": false,
+              "short": "Indicates whether the credit card is valid",
               "type": "`$BOOLEAN`"
             }
           ],

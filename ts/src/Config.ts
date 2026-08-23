@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'CreditCardValidation',
+        slug: "credit-card-validation",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,26 +67,32 @@ class Config {
       "fields": [
         {
           "name": "cardNumber",
+          "short": "Masked credit card number",
           "type": "`$STRING`"
         },
         {
           "name": "cardType",
+          "short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
           "type": "`$STRING`"
         },
         {
           "name": "expirationValid",
+          "short": "Indicates whether the expiration date is valid and not expired",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "luhnCheck",
+          "short": "Result of Luhn algorithm validation",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "message",
+          "short": "Additional information or error message",
           "type": "`$STRING`"
         },
         {
           "name": "valid",
+          "short": "Indicates whether the credit card is valid",
           "type": "`$BOOLEAN`"
         }
       ],

@@ -6,7 +6,7 @@ The Golang SDK for the CreditCardValidation API — an entity-oriented client us
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Validation(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,12 +258,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"cardNumber"` |  |
-| `"cardType"` |  |
-| `"expirationValid"` |  |
-| `"luhnCheck"` |  |
-| `"message"` |  |
-| `"valid"` |  |
+| `"cardNumber"` | Masked credit card number |
+| `"cardType"` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `"expirationValid"` | Indicates whether the expiration date is valid and not expired |
+| `"luhnCheck"` | Result of Luhn algorithm validation |
+| `"message"` | Additional information or error message |
+| `"valid"` | Indicates whether the credit card is valid |
 
 Operations: Load.
 
@@ -288,12 +288,12 @@ Create an instance: `validation := client.Validation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cardNumber` | `string` |  |
-| `cardType` | `string` |  |
-| `expirationValid` | `bool` |  |
-| `luhnCheck` | `bool` |  |
-| `message` | `string` |  |
-| `valid` | `bool` |  |
+| `cardNumber` | `string` | Masked credit card number |
+| `cardType` | `string` | Type of credit card (Visa, MasterCard, American Express, etc.) |
+| `expirationValid` | `bool` | Indicates whether the expiration date is valid and not expired |
+| `luhnCheck` | `bool` | Result of Luhn algorithm validation |
+| `message` | `string` | Additional information or error message |
+| `valid` | `bool` | Indicates whether the credit card is valid |
 
 #### Example: Load
 
