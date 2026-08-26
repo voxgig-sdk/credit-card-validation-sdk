@@ -42,6 +42,7 @@ class CreditCardValidationConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
