@@ -26,11 +26,8 @@ class Validation
 /** Request payload for Validation#load. */
 class ValidationLoadMatch
 {
-    public ?string $cardNumber = null;
-    public ?string $cardType = null;
-    public ?bool $expirationValid = null;
-    public ?bool $luhnCheck = null;
-    public ?string $message = null;
-    public ?bool $valid = null;
+    public string $cc;
+    public ?string $cvv = null;
+    public ?string $exp = null;
 }
 

@@ -24,12 +24,9 @@ type Validation struct {
 
 // ValidationLoadMatch is the typed request payload for Validation.LoadTyped.
 type ValidationLoadMatch struct {
-	CardNumber *string `json:"cardNumber,omitempty"`
-	CardType *string `json:"cardType,omitempty"`
-	ExpirationValid *bool `json:"expirationValid,omitempty"`
-	LuhnCheck *bool `json:"luhnCheck,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Valid *bool `json:"valid,omitempty"`
+	Cc string `json:"cc"`
+	Cvv *string `json:"cvv,omitempty"`
+	Exp *string `json:"exp,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

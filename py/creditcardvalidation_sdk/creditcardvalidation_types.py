@@ -25,10 +25,10 @@ class Validation(TypedDict, total=False):
     valid: bool
 
 
-class ValidationLoadMatch(TypedDict, total=False):
-    cardNumber: str
-    cardType: str
-    expirationValid: bool
-    luhnCheck: bool
-    message: str
-    valid: bool
+class ValidationLoadMatchRequired(TypedDict):
+    cc: str
+
+
+class ValidationLoadMatch(ValidationLoadMatchRequired, total=False):
+    cvv: str
+    exp: str

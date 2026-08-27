@@ -39,30 +39,18 @@ Validation = Struct.new(
 
 # Request payload for Validation#load.
 #
-# @!attribute [rw] cardNumber
+# @!attribute [rw] cc
+#   @return [String]
+#
+# @!attribute [rw] cvv
 #   @return [String, nil]
 #
-# @!attribute [rw] cardType
+# @!attribute [rw] exp
 #   @return [String, nil]
-#
-# @!attribute [rw] expirationValid
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] luhnCheck
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] message
-#   @return [String, nil]
-#
-# @!attribute [rw] valid
-#   @return [Boolean, nil]
 ValidationLoadMatch = Struct.new(
-  :cardNumber,
-  :cardType,
-  :expirationValid,
-  :luhnCheck,
-  :message,
-  :valid,
+  :cc,
+  :cvv,
+  :exp,
   keyword_init: true
 )
 

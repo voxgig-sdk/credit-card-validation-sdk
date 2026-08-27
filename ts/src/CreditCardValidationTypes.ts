@@ -15,11 +15,8 @@ export interface Validation {
 }
 
 export interface ValidationLoadMatch {
-  cardNumber?: string
-  cardType?: string
-  expirationValid?: boolean
-  luhnCheck?: boolean
-  message?: string
-  valid?: boolean
+  cc: string
+  cvv?: string
+  exp?: string
 }
 

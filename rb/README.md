@@ -35,7 +35,7 @@ client = CreditCardValidationSDK.new
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Validation record (raises on error).
-  validation = client.Validation.load()
+  validation = client.Validation.load({ "cc" => "example_cc" })
   puts validation
 rescue => err
   warn "load failed: #{err}"
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  validation = client.Validation.load()
+  validation = client.Validation.load({ "cc" => "example" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -119,7 +119,7 @@ client = CreditCardValidationSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-validation = client.Validation.load()
+validation = client.Validation.load({ "cc" => "example" })
 puts validation
 ```
 
@@ -276,8 +276,31 @@ Create an instance: `validation = client.Validation`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Validation record (raises on error).
-validation = client.Validation.load()
+validation = client.Validation.load({ "cc" => "cc" })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -357,7 +380,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 validation = client.Validation
-validation.load()
+validation.load({ "cc" => "example" })
 
 # validation.data_get now returns the validation data from the last load
 # validation.match_get returns the last match criteria
