@@ -98,8 +98,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stripe.php",
-                ["parts"] = {
-                  "stripe.php",
+                ["segments"] = {
+                  {
+                    ["lit"] = "stripe.php",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -111,6 +113,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "stripe.php",
                 },
               },
             },

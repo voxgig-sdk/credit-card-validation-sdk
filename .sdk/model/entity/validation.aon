@@ -79,8 +79,10 @@ main: kit: entity: validation: {
           }
           method: "GET"
           orig: "/stripe.php"
-          parts: [
-            "stripe.php"
+          segments: [
+            {
+              lit: "stripe.php"
+            }
           ]
           select: {
             exist: [

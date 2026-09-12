@@ -124,8 +124,10 @@ class CreditCardValidationConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/stripe.php',
-                  'parts' => [
-                    'stripe.php',
+                  'segments' => [
+                    [
+                      'lit' => 'stripe.php',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -137,6 +139,9 @@ class CreditCardValidationConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'stripe.php',
                   ],
                 ],
               ],
