@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
+import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation-sdk'
 
 const client = new CreditCardValidationSDK()
 ```
@@ -411,7 +411,7 @@ credit-card-validation/
 Import the SDK from the package root:
 
 ```ts
-import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
+import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation-sdk'
 ```
 
 ### Entity state

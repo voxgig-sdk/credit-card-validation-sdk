@@ -105,7 +105,7 @@ local result, err = client:Validation():load({ cc = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/credit-card-validation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
 | Python | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
 | PHP | `voxgig-sdk/credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/credit-card-validation-sdk/go` | `go get github.com/voxgig-sdk/credit-card-validation-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Validation():load({ cc = "example" })
 ### TypeScript
 
 ```ts
-import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation'
+import { CreditCardValidationSDK } from '@voxgig-sdk/credit-card-validation-sdk'
 
 const client = new CreditCardValidationSDK()
 
