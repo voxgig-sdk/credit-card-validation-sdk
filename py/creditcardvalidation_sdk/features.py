@@ -1,12 +1,18 @@
 # CreditCardValidation SDK feature factory
 
 from creditcardvalidation_sdk.feature.base_feature import CreditCardValidationBaseFeature
+from creditcardvalidation_sdk.feature.ratelimit_feature import CreditCardValidationRatelimitFeature
+from creditcardvalidation_sdk.feature.retry_feature import CreditCardValidationRetryFeature
 from creditcardvalidation_sdk.feature.test_feature import CreditCardValidationTestFeature
+from creditcardvalidation_sdk.feature.timeout_feature import CreditCardValidationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CreditCardValidationBaseFeature(),
+    "ratelimit": lambda: CreditCardValidationRatelimitFeature(),
+    "retry": lambda: CreditCardValidationRetryFeature(),
     "test": lambda: CreditCardValidationTestFeature(),
+    "timeout": lambda: CreditCardValidationTimeoutFeature(),
 }
 
 

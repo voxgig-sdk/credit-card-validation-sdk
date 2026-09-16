@@ -4,7 +4,10 @@ declare(strict_types=1);
 // CreditCardValidation SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CreditCardValidationFeatures
@@ -14,8 +17,14 @@ class CreditCardValidationFeatures
         switch ($name) {
             case "base":
                 return new CreditCardValidationBaseFeature();
+            case "ratelimit":
+                return new CreditCardValidationRatelimitFeature();
+            case "retry":
+                return new CreditCardValidationRetryFeature();
             case "test":
                 return new CreditCardValidationTestFeature();
+            case "timeout":
+                return new CreditCardValidationTimeoutFeature();
             default:
                 return new CreditCardValidationBaseFeature();
         }
@@ -31,7 +40,10 @@ class CreditCardValidationFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
