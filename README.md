@@ -105,12 +105,12 @@ local result, err = client:Validation():load({ cc = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/credit-card-validation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
-| Python | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
-| PHP | `voxgig-sdk/credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/credit-card-validation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/tags) |
+| Python | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/tags) |
+| PHP | `voxgig-sdk/credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/credit-card-validation-sdk/go` | `go get github.com/voxgig-sdk/credit-card-validation-sdk/go@latest` |
-| Ruby | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
-| Lua | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/releases) |
+| Ruby | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/tags) |
+| Lua | `voxgig-sdk-credit-card-validation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/credit-card-validation-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/credit-card-validation-sdk/go-cli` | `go install github.com/voxgig-sdk/credit-card-validation-sdk/go-cli/cmd/credit-card-validation@latest` |
 | Go MCP server | `github.com/voxgig-sdk/credit-card-validation-sdk/go-mcp` | `go get github.com/voxgig-sdk/credit-card-validation-sdk/go-mcp@latest` |
 
