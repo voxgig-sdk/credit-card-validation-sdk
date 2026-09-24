@@ -87,33 +87,39 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "cardNumber",
-            ["short"] = "Masked credit card number",
+            ["title"] = "Card Number",
             ["type"] = "`$STRING`",
+            ["short"] = "Masked credit card number",
           },
           {
             ["name"] = "cardType",
-            ["short"] = "Type of credit card (Visa, MasterCard, American Express, etc.)",
+            ["title"] = "Card Type",
             ["type"] = "`$STRING`",
+            ["short"] = "Type of credit card (Visa, MasterCard, American Express, etc.)",
           },
           {
             ["name"] = "expirationValid",
-            ["short"] = "Indicates whether the expiration date is valid and not expired",
+            ["title"] = "Expiration Valid",
             ["type"] = "`$BOOLEAN`",
+            ["short"] = "Indicates whether the expiration date is valid and not expired",
           },
           {
             ["name"] = "luhnCheck",
-            ["short"] = "Result of Luhn algorithm validation",
+            ["title"] = "Luhn Check",
             ["type"] = "`$BOOLEAN`",
+            ["short"] = "Result of Luhn algorithm validation",
           },
           {
             ["name"] = "message",
-            ["short"] = "Additional information or error message",
+            ["title"] = "Message",
             ["type"] = "`$STRING`",
+            ["short"] = "Additional information or error message",
           },
           {
             ["name"] = "valid",
-            ["short"] = "Indicates whether the credit card is valid",
+            ["title"] = "Valid",
             ["type"] = "`$BOOLEAN`",
+            ["short"] = "Indicates whether the credit card is valid",
           },
         },
         ["name"] = "validation",
@@ -123,32 +129,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = "4532015112830366",
-                      ["kind"] = "query",
-                      ["name"] = "cc",
-                      ["orig"] = "cc",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "123",
-                      ["kind"] = "query",
-                      ["name"] = "cvv",
-                      ["orig"] = "cvv",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["example"] = "12/25",
-                      ["kind"] = "query",
-                      ["name"] = "exp",
-                      ["orig"] = "exp",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stripe.php",
@@ -157,19 +137,46 @@ local function make_config()
                     ["lit"] = "stripe.php",
                   },
                 },
+                ["parts"] = {
+                  "stripe.php",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "cc",
+                      ["orig"] = "cc",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["reqd"] = true,
+                      ["example"] = "4532015112830366",
+                    },
+                    {
+                      ["name"] = "cvv",
+                      ["orig"] = "cvv",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "123",
+                    },
+                    {
+                      ["name"] = "exp",
+                      ["orig"] = "exp",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "12/25",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "cc",
                     "cvv",
                     "exp",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "stripe.php",
                 },
               },
             },

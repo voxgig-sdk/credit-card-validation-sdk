@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,33 +132,39 @@ class Config {
       "fields": [
         {
           "name": "cardNumber",
-          "short": "Masked credit card number",
-          "type": "`$STRING`"
+          "title": "Card Number",
+          "type": "`$STRING`",
+          "short": "Masked credit card number"
         },
         {
           "name": "cardType",
-          "short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
-          "type": "`$STRING`"
+          "title": "Card Type",
+          "type": "`$STRING`",
+          "short": "Type of credit card (Visa, MasterCard, American Express, etc.)"
         },
         {
           "name": "expirationValid",
-          "short": "Indicates whether the expiration date is valid and not expired",
-          "type": "`$BOOLEAN`"
+          "title": "Expiration Valid",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates whether the expiration date is valid and not expired"
         },
         {
           "name": "luhnCheck",
-          "short": "Result of Luhn algorithm validation",
-          "type": "`$BOOLEAN`"
+          "title": "Luhn Check",
+          "type": "`$BOOLEAN`",
+          "short": "Result of Luhn algorithm validation"
         },
         {
           "name": "message",
-          "short": "Additional information or error message",
-          "type": "`$STRING`"
+          "title": "Message",
+          "type": "`$STRING`",
+          "short": "Additional information or error message"
         },
         {
           "name": "valid",
-          "short": "Indicates whether the credit card is valid",
-          "type": "`$BOOLEAN`"
+          "title": "Valid",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates whether the credit card is valid"
         }
       ],
       "name": "validation",
@@ -175,32 +174,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "4532015112830366",
-                    "kind": "query",
-                    "name": "cc",
-                    "orig": "cc",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "123",
-                    "kind": "query",
-                    "name": "cvv",
-                    "orig": "cvv",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "12/25",
-                    "kind": "query",
-                    "name": "exp",
-                    "orig": "exp",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/stripe.php",
@@ -209,20 +182,47 @@ class Config {
                   "lit": "stripe.php"
                 }
               ],
+              "parts": [
+                "stripe.php"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "cc",
+                    "orig": "cc",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true,
+                    "example": "4532015112830366"
+                  },
+                  {
+                    "name": "cvv",
+                    "orig": "cvv",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "123"
+                  },
+                  {
+                    "name": "exp",
+                    "orig": "exp",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "12/25"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "cc",
                   "cvv",
                   "exp"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "stripe.php"
-              ]
+              }
             }
           ]
         }

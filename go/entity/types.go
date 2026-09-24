@@ -1,7 +1,7 @@
 // Typed models for the CreditCardValidation SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,12 +14,6 @@ import (
 
 // Validation is the typed data model for the validation entity.
 type Validation struct {
-	CardNumber *string `json:"cardNumber,omitempty"`
-	CardType *string `json:"cardType,omitempty"`
-	ExpirationValid *bool `json:"expirationValid,omitempty"`
-	LuhnCheck *bool `json:"luhnCheck,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Valid *bool `json:"valid,omitempty"`
 }
 
 // ValidationLoadMatch is the typed request payload for Validation.LoadTyped.

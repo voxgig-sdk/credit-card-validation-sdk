@@ -1,0 +1,116 @@
+# Entity: validation
+
+main: kit: entity: validation: {
+
+  alias: field: {}
+
+  fields: {
+    cardNumber: {
+      h: "Card Number"
+      n: "cardNumber"
+      r: false
+      sh: "Masked credit card number"
+      t: "`$STRING`"
+    }
+    cardType: {
+      h: "Card Type"
+      n: "cardType"
+      r: false
+      sh: "Type of credit card (Visa, MasterCard, American Express, etc.)"
+      t: "`$STRING`"
+    }
+    expirationValid: {
+      h: "Expiration Valid"
+      n: "expirationValid"
+      r: false
+      sh: "Indicates whether the expiration date is valid and not expired"
+      t: "`$BOOLEAN`"
+    }
+    luhnCheck: {
+      h: "Luhn Check"
+      n: "luhnCheck"
+      r: false
+      sh: "Result of Luhn algorithm validation"
+      t: "`$BOOLEAN`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: false
+      sh: "Additional information or error message"
+      t: "`$STRING`"
+    }
+    valid: {
+      h: "Valid"
+      n: "valid"
+      r: false
+      sh: "Indicates whether the credit card is valid"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "validation"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /stripe.php"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "4532015112830366"
+                k: "query"
+                n: "cc"
+                or: "cc"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "123"
+                k: "query"
+                n: "cvv"
+                or: "cvv"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "12/25"
+                k: "query"
+                n: "exp"
+                or: "exp"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/stripe.php"
+          q: {
+            exist: [
+              "cc"
+              "cvv"
+              "exp"
+            ]
+          }
+          s: [
+            {
+              lit: "stripe.php"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

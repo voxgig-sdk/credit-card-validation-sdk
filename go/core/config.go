@@ -91,33 +91,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "cardNumber",
-						"short": "Masked credit card number",
+						"title": "Card Number",
 						"type": "`$STRING`",
+						"short": "Masked credit card number",
 					},
 					map[string]any{
 						"name": "cardType",
-						"short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
+						"title": "Card Type",
 						"type": "`$STRING`",
+						"short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
 					},
 					map[string]any{
 						"name": "expirationValid",
-						"short": "Indicates whether the expiration date is valid and not expired",
+						"title": "Expiration Valid",
 						"type": "`$BOOLEAN`",
+						"short": "Indicates whether the expiration date is valid and not expired",
 					},
 					map[string]any{
 						"name": "luhnCheck",
-						"short": "Result of Luhn algorithm validation",
+						"title": "Luhn Check",
 						"type": "`$BOOLEAN`",
+						"short": "Result of Luhn algorithm validation",
 					},
 					map[string]any{
 						"name": "message",
-						"short": "Additional information or error message",
+						"title": "Message",
 						"type": "`$STRING`",
+						"short": "Additional information or error message",
 					},
 					map[string]any{
 						"name": "valid",
-						"short": "Indicates whether the credit card is valid",
+						"title": "Valid",
 						"type": "`$BOOLEAN`",
+						"short": "Indicates whether the credit card is valid",
 					},
 				},
 				"name": "validation",
@@ -127,32 +133,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "4532015112830366",
-											"kind": "query",
-											"name": "cc",
-											"orig": "cc",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "123",
-											"kind": "query",
-											"name": "cvv",
-											"orig": "cvv",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "12/25",
-											"kind": "query",
-											"name": "exp",
-											"orig": "exp",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/stripe.php",
@@ -161,19 +141,46 @@ func MakeConfig() map[string]any {
 										"lit": "stripe.php",
 									},
 								},
+								"parts": []any{
+									"stripe.php",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "cc",
+											"orig": "cc",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "4532015112830366",
+										},
+										map[string]any{
+											"name": "cvv",
+											"orig": "cvv",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "123",
+										},
+										map[string]any{
+											"name": "exp",
+											"orig": "exp",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "12/25",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"cc",
 										"cvv",
 										"exp",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"stripe.php",
 								},
 							},
 						},

@@ -24,56 +24,128 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "validation": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "cardNumber",
-              "req": false,
-              "short": "Masked credit card number",
-              "type": "`$STRING`"
+          "fields": {
+            "cardNumber": {
+              "a": true,
+              "h": "Card Number",
+              "n": "cardNumber",
+              "r": false,
+              "sh": "Masked credit card number",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "cardType",
-              "req": false,
-              "short": "Type of credit card (Visa, MasterCard, American Express, etc.)",
-              "type": "`$STRING`"
+            "cardType": {
+              "a": true,
+              "h": "Card Type",
+              "n": "cardType",
+              "r": false,
+              "sh": "Type of credit card (Visa, MasterCard, American Express, etc.)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "expirationValid",
-              "req": false,
-              "short": "Indicates whether the expiration date is valid and not expired",
-              "type": "`$BOOLEAN`"
+            "expirationValid": {
+              "a": true,
+              "h": "Expiration Valid",
+              "n": "expirationValid",
+              "r": false,
+              "sh": "Indicates whether the expiration date is valid and not expired",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "luhnCheck",
-              "req": false,
-              "short": "Result of Luhn algorithm validation",
-              "type": "`$BOOLEAN`"
+            "luhnCheck": {
+              "a": true,
+              "h": "Luhn Check",
+              "n": "luhnCheck",
+              "r": false,
+              "sh": "Result of Luhn algorithm validation",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "message",
-              "req": false,
-              "short": "Additional information or error message",
-              "type": "`$STRING`"
+            "message": {
+              "a": true,
+              "h": "Message",
+              "n": "message",
+              "r": false,
+              "sh": "Additional information or error message",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "valid",
-              "req": false,
-              "short": "Indicates whether the credit card is valid",
-              "type": "`$BOOLEAN`"
+            "valid": {
+              "a": true,
+              "h": "Valid",
+              "n": "valid",
+              "r": false,
+              "sh": "Indicates whether the credit card is valid",
+              "t": "`$BOOLEAN`"
             }
-          ],
+          },
           "name": "validation",
           "op": {
             "load": {
@@ -81,60 +153,60 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /stripe.php",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "4532015112830366",
-                        "kind": "query",
-                        "name": "cc",
-                        "orig": "cc",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "4532015112830366",
+                        "k": "query",
+                        "n": "cc",
+                        "or": "cc",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "123",
-                        "kind": "query",
-                        "name": "cvv",
-                        "orig": "cvv",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "123",
+                        "k": "query",
+                        "n": "cvv",
+                        "or": "cvv",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "12/25",
-                        "kind": "query",
-                        "name": "exp",
-                        "orig": "exp",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "12/25",
+                        "k": "query",
+                        "n": "exp",
+                        "or": "exp",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /stripe.php",
-                    "json": "{\"operationId\":\"validateCreditCard\",\"parameters\":[{\"description\":\"Credit card number to validate\",\"in\":\"query\",\"name\":\"cc\",\"required\":true,\"schema\":{\"example\":\"4532015112830366\",\"pattern\":\"^[0-9]{13,19}$\",\"type\":\"string\"}},{\"description\":\"Expiration date in MM/YY or MM/YYYY format\",\"in\":\"query\",\"name\":\"exp\",\"required\":false,\"schema\":{\"example\":\"12/25\",\"pattern\":\"^(0[1-9]|1[0-2])\\\\/([0-9]{2}|[0-9]{4})$\",\"type\":\"string\"}},{\"description\":\"Card verification value (CVV/CVC)\",\"in\":\"query\",\"name\":\"cvv\",\"required\":false,\"schema\":{\"example\":\"123\",\"pattern\":\"^[0-9]{3,4}$\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"invalidCard\":{\"summary\":\"Invalid credit card response\",\"value\":{\"cardNumber\":\"****-****-****-1234\",\"cardType\":\"Unknown\",\"expirationValid\":false,\"luhnCheck\":false,\"message\":\"Credit card validation failed\",\"valid\":false}},\"validCard\":{\"summary\":\"Valid credit card response\",\"value\":{\"cardNumber\":\"****-****-****-0366\",\"cardType\":\"Visa\",\"expirationValid\":true,\"luhnCheck\":true,\"message\":\"Credit card is valid\",\"valid\":true}}},\"schema\":{\"properties\":{\"cardNumber\":{\"description\":\"Masked credit card number\",\"example\":\"****-****-****-0366\",\"type\":\"string\"},\"cardType\":{\"description\":\"Type of credit card (Visa, MasterCard, American Express, etc.)\",\"example\":\"Visa\",\"type\":\"string\"},\"expirationValid\":{\"description\":\"Indicates whether the expiration date is valid and not expired\",\"type\":\"boolean\"},\"luhnCheck\":{\"description\":\"Result of Luhn algorithm validation\",\"type\":\"boolean\"},\"message\":{\"description\":\"Additional information or error message\",\"type\":\"string\"},\"valid\":{\"description\":\"Indicates whether the credit card is valid\",\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Successful validation response\"},\"400\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Bad Request\",\"message\":\"Credit card number is required\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing the issue\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error information\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid input parameters\"},\"422\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Validation Error\",\"message\":\"Invalid credit card number format\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed validation error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Unprocessable Entity - Invalid credit card format\"},\"500\":{\"content\":{\"application/json\":{\"example\":{\"error\":\"Internal Server Error\",\"message\":\"An unexpected error occurred while processing the request\"},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error information\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/stripe.php",
-                  "segments": [
-                    {
-                      "lit": "stripe.php"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/stripe.php",
+                  "q": {
                     "exist": [
                       "cc",
                       "cvv",
                       "exp"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "stripe.php"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -563,17 +635,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "validation_ref01",
                 "srcdatavar": "validation_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
